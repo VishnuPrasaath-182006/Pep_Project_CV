@@ -1,0 +1,25 @@
+name: unet_mamba_flood
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.14
+  - pytorch
+  - torchvision
+  - pytorch-cuda=13.2
+  - numpy
+  - pandas
+  - matplotlib
+  - scipy
+  - scikit-learn
+  - pyyaml
+  - pytest
+  - tqdm
+  - pillow
+  - pip
+  - pip:
+    - timm
+    - einops
+    - rasterio

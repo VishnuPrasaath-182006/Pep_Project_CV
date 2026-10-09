@@ -1,0 +1,63 @@
+{
+  "experiment": "E0",
+  "split": "val",
+  "total_chips": 114,
+  "total_valid_pixels": 117355812,
+  "pixel_pooled": {
+    "flood_iou": 0.5926787086517884,
+    "bg_iou": 0.7313280311011653,
+    "mean_iou": 0.6620033698764769,
+    "flood_dice": 0.7442539483101325,
+    "flood_precision": 0.775445722437572,
+    "flood_recall": 0.7154744765548499,
+    "specificity": 0.8659531330562282,
+    "pixel_accuracy": 0.8068407468391936,
+    "valid_pixels": 117355812,
+    "tp": 32983925,
+    "fp": 9551515,
+    "fn": 13116846,
+    "tn": 61703526,
+    "chip_count": 114
+  },
+  "macro_event_averages": {
+    "macro_event_flood_iou": 0.6489702815659144,
+    "macro_event_mean_iou": 0.6668692470813553,
+    "macro_event_dice": 0.7836028096714577
+  },
+  "per_event": [
+    {
+      "flood_iou": 0.5602775228079074,
+      "bg_iou": 0.7408800709051122,
+      "mean_iou": 0.6505787968565098,
+      "flood_dice": 0.7181767533247809,
+      "flood_precision": 0.7663287147307126,
+      "flood_recall": 0.6757182637351146,
+      "specificity": 0.8803717417455583,
+      "pixel_accuracy": 0.8051965202142963,
+      "valid_pixels": 102675748,
+      "tp": 25485263,
+      "fp": 7771044,
+      "fn": 12230549,
+      "tn": 57188892,
+      "chip_count": 100,
+      "event": "Bolivia"
+    },
+    {
+      "flood_iou": 0.7376630403239214,
+      "bg_iou": 0.6286563542884802,
+      "mean_iou": 0.6831596973062009,
+      "flood_dice": 0.8490288660181344,
+      "flood_precision": 0.8081209742332608,
+      "flood_recall": 0.8942991850049595,
+      "specificity": 0.7171657978699323,
+      "pixel_accuracy": 0.8183408464704242,
+      "valid_pixels": 14680064,
+      "tp": 7498662,
+      "fp": 1780471,
+      "fn": 886297,
+      "tn": 4514634,
+      "chip_count": 14,
+      "event": "US-Dakota"
+    }
+  ]
+}

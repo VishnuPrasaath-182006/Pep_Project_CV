@@ -1,0 +1,54 @@
+# UNet-Mamba Flood Inundation Semantic Segmentation Configuration
+experiment:
+  name: "unet_mamba_flood_planet"
+  seed: 42
+
+data:
+  raw_dataset_dir: "../Datasets"
+  processed_dir: "processed_data"
+  manifests_dir: "manifests"
+  sensor: "PS"  # PlanetScope 4-channel imagery (Red, Green, Blue, NIR)
+  in_channels: 4
+  num_classes: 2
+  patch_size: 512
+  stride: 512
+  # Normalization parameters for PlanetScope imagery (computed from train split uint16 values)
+  # Channels: Red, Green, Blue, NIR
+  norm_mean: [2334.81, 2378.43, 2185.12, 3608.97]
+  norm_std: [1245.52, 1184.21, 1148.65, 1420.33]
+
+model:
+  name: "UNetMamba"
+  in_channels: 4
+  num_classes: 2
+  embed_dim: 64
+  decode_channels: 64
+  pretrained: false
+
+loss:
+  name: "UnetMambaLoss"
+  soft_ce_smooth: 0.05
+  dice_smooth: 0.05
+  auxiliary_weight: 0.4
+  ignore_index: -1
+
+training:
+  epochs: 11
+  batch_size: 4
+  num_workers: 0
+  optimizer: "AdamW"
+  learning_rate: 0.0006
+  backbone_learning_rate: 0.00006
+  weight_decay: 0.00025
+  scheduler: "CosineAnnealingWarmRestarts"
+  scheduler_t0: 15
+  scheduler_t_mult: 2
+  save_dir: "checkpoints"
+  logs_dir: "results/logs"
+
+evaluation:
+  results_dir: "results"
+  figures_dir: "results/figures"
+  predictions_dir: "results/predictions"
+  metrics_dir: "results/metrics"
+  reports_dir: "results/reports"

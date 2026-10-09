@@ -1,0 +1,60 @@
+{
+  "experiment": "E2",
+  "checkpoint": "UNet-Mamba/checkpoints/best_e2_model.pth",
+  "diagnosed_scenes": [
+    {
+      "scene_id": "Bolivia_BOL_1176",
+      "e0_flood_iou": 0.5721647041589653,
+      "e2_flood_iou": 0.6172403186287508,
+      "delta_iou": 0.045075614469785585,
+      "e0_precision": 0.7160168328656039,
+      "e2_precision": 0.7211039459922973,
+      "e0_recall": 0.7401194334296566,
+      "e2_recall": 0.8107986100467869,
+      "fp_initial": 105341,
+      "fp_final": 112534,
+      "fp_reduction": -7193,
+      "fn_initial": 93261,
+      "fn_final": 67897,
+      "fn_reduction": 25364,
+      "mean_gate_in_candidate": 0.789717972278595,
+      "max_residual_magnitude": 3.2111008167266846
+    },
+    {
+      "scene_id": "US-Dakota_RRN_10_46",
+      "e0_flood_iou": 0.6084619805350713,
+      "e2_flood_iou": 0.6214548926828788,
+      "delta_iou": 0.012992912147807512,
+      "e0_precision": 0.8828559220155549,
+      "e2_precision": 0.8797251976477365,
+      "e0_recall": 0.6619008001683055,
+      "e2_recall": 0.6791592853710491,
+      "fp_initial": 73473,
+      "fp_final": 77679,
+      "fp_reduction": -4206,
+      "fn_initial": 282845,
+      "fn_final": 268407,
+      "fn_reduction": 14438,
+      "mean_gate_in_candidate": 0.7016420364379883,
+      "max_residual_magnitude": 3.401735782623291
+    },
+    {
+      "scene_id": "Bolivia_BOL_1123",
+      "e0_flood_iou": 0.45019439217703267,
+      "e2_flood_iou": 0.4921582330682684,
+      "delta_iou": 0.041963840891235726,
+      "e0_precision": 0.8119321291735084,
+      "e2_precision": 0.8074851118996338,
+      "e0_recall": 0.5026053462203756,
+      "e2_recall": 0.5575833229309699,
+      "fp_initial": 32642,
+      "fp_final": 37273,
+      "fp_reduction": -4631,
+      "fn_initial": 139462,
+      "fn_final": 124047,
+      "fn_reduction": 15415,
+      "mean_gate_in_candidate": 0.7764789462089539,
+      "max_residual_magnitude": 3.162078857421875
+    }
+  ]
+}

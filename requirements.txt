@@ -1,0 +1,15 @@
+# CAVE-Flood v1: Core Requirements
+torch>=2.0.0
+torchvision
+timm
+einops
+rasterio
+numpy
+scipy
+pandas
+matplotlib
+Pillow
+tqdm
+scikit-learn
+PyYAML
+pytest

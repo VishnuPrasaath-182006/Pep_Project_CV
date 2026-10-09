@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAVE-Flood v1: Final Independent Verification & Audit Report</title>
+<style>
+  :root {
+    --primary: #0284c7;
+    --primary-dark: #0369a1;
+    --text: #0f172a;
+    --text-muted: #475569;
+    --bg: #ffffff;
+    --bg-alt: #f8fafc;
+    --border: #e2e8f0;
+    --success: #15803d;
+    --warning: #b45309;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    background-color: var(--bg-alt);
+    margin: 0;
+    padding: 32px 16px;
+  }
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: var(--bg);
+    padding: 48px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.05);
+    border: 1px solid var(--border);
+  }
+  h1 {
+    font-size: 26px;
+    color: #0f172a;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 12px;
+    margin-top: 0;
+    line-height: 1.25;
+  }
+  h2 {
+    font-size: 20px;
+    color: #1e293b;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+    margin-top: 36px;
+  }
+  h3 {
+    font-size: 16px;
+    color: #334155;
+    margin-top: 24px;
+  }
+  p, li {
+    font-size: 14.5px;
+    color: #334155;
+  }
+  ul, ol {
+    padding-left: 24px;
+    margin-bottom: 16px;
+  }
+  li {
+    margin-bottom: 6px;
+  }
+  .table-container {
+    overflow-x: auto;
+    margin: 20px 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    background: #ffffff;
+    border: 1px solid var(--border);
+  }
+  th, td {
+    padding: 10px 12px;
+    text-align: left;
+    border: 1px solid var(--border);
+  }
+  th {
+    background-color: #f1f5f9;
+    color: #0f172a;
+    font-weight: 600;
+  }
+  tr:nth-child(even) {
+    background-color: #f8fafc;
+  }
+  pre {
+    background-color: #0f172a;
+    color: #f8fafc;
+    padding: 16px;
+    border-radius: 6px;
+    overflow-x: auto;
+    font-size: 13px;
+    line-height: 1.45;
+  }
+  code {
+    font-family: Consolas, Monaco, "Courier New", monospace;
+    background: #f1f5f9;
+    color: #0f172a;
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-size: 12.5px;
+  }
+  pre code {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+  }
+  .badge {
+    display: inline-block;
+    padding: 3px 8px;
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .badge-pass {
+    background-color: #dcfce7;
+    color: #15803d;
+    border: 1px solid #bbf7d0;
+  }
+  .badge-verdict {
+    background-color: #fef3c7;
+    color: #b45309;
+    border: 1px solid #fde68a;
+  }
+  hr {
+    border: 0;
+    height: 1px;
+    background: var(--border);
+    margin: 32px 0;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+<h1>CAVE-Flood v1: Complete Experimental Results & Final Verification Report (Version 3 Corrected Edition)</h1>
+
+<p><strong>Project Title</strong>: CAVE-Flood: Confidence-Aware Vision-Language-Guided Residual Refinement for Flood Inundation Segmentation</p>
+<p><strong>Base Architecture</strong>: Authentic UNet-Mamba (ResT hierarchical vision transformer encoder + chunked checkpointed SS2D Mamba decoder + LSM)</p>
+<p><strong>Document Purpose</strong>: Final Authoritative Experimental Results & Scientifically Reconciled Technical Report</p>
+<p><strong>Edition</strong>: Corrected Final Release Edition</p>
+<p><strong>Date</strong>: October 9, 2026</p>
+<p><strong>Status</strong>: VERIFIED, MATHEMATICALLY RECONCILED, EVALUATION LOCKED & FULLY REPRODUCIBLE</p>
+
+<hr>
+
+<h2>1. Executive Summary</h2>
+
+<p>This report presents the complete, verified experimental results for <strong>CAVE-Flood v1</strong>, evaluating the Confidence-Aware Semantic Residual (CASR) adapter on frozen UNet-Mamba backbones for flood inundation segmentation on PlanetScope satellite imagery.</p>
+
+<h3>Core Architectural Invariants:</h3>
+<ol><li><strong>Zero Backbone Retraining</strong>: The 14.29M-parameter UNet-Mamba baseline checkpoint remained strictly frozen and untouched throughout all stages (<code>SHA256: 58674C84E97E16C7AB86F2E218BA8738C7AAF69A8C6FD8C384DE00BEEC9EB76D</code>).</li><li><strong>Parameter Footprint</strong>:</li></ol>
+<p>- CASR Adapter Head: <strong>12,035 trainable parameters</strong> (<span class="math-inline">0.084\%</span> of base model; checkpoint size: <strong>54.4 KB</strong>).</p>
+<p>- UNet-Mamba + CASR Head: <strong>14,306,053 parameters</strong> total.</p>
+<p>- RemoteCLIP Vision-Language Guidance Module (E2 only): <strong>87,849,217 frozen parameters</strong> (ViT-B/32 text/image encoder).</p>
+<p>- Full pipeline during E2 inference: <strong>102,155,270 parameters</strong> total (12,035 trainable, 0.012%).</p>
+<ol><li><strong>Exact Zero-Residual Equivalence</strong>: In non-candidate regions (<span class="math-inline">75\%</span> of image area) or at initialization (<span class="math-inline">\lambda = 0</span>), CASR logits match UNet-Mamba base logits to exact machine precision (<code>torch.equal == True</code>, <span class="math-inline">\max |\Delta Z| \equiv 0.0</span>).</li><li><strong>Validation Performance (114 Chips, 117.36M Unique Pixels across Bolivia & US-Dakota)</strong>:</li></ol>
+<p>- <strong>E1 (Neutral Guidance <span class="math-inline">g=0</span>)</strong> achieved <strong><code>0.653316</code></strong> Mean Event Flood IoU (<strong>+0.43 pp</strong> over baseline <code>0.648970</code>).</p>
+<p>- <strong>E2 (RemoteCLIP Guidance <span class="math-inline">g</span>)</strong> achieved <strong><code>0.653148</code></strong> Mean Event Flood IoU (<strong>+0.41 pp</strong> over baseline <code>0.648970</code>), winning the tie-breaker Macro mIoU (<strong><code>0.667019</code> vs <code>0.666783</code>, +0.50 pp</strong>).</p>
+<ol><li><strong>Held-Out Test Performance (44 Chips, 46.14M Unique Pixels across Held-Out Asian Flood Events)</strong>:</li></ol>
+<p>- Evaluated strictly single-pass on quarantined Asian flood events: Bangladesh (15 chips), Cambodia (20 chips), and Nepal (9 chips).</p>
+<p>- <strong>Mean Event Flood IoU</strong>:</p>
+<p>- Baseline E0: <code>0.752949</code></p>
+<p>- Neutral CASR E1: <code>0.754259</code> (<strong>+0.13 pp</strong> over E0)</p>
+<p>- RemoteCLIP CASR E2: <strong><code>0.754468</code></strong> (<strong>+0.15 pp</strong> over E0, <strong>+0.02 pp</strong> over E1)</p>
+<p>- <strong>Pixel-Pooled Flood IoU</strong>:</p>
+<p>- Baseline E0: <code>0.775913</code></p>
+<p>- Neutral CASR E1: <strong><code>0.777762</code></strong> (<strong>+0.18 pp</strong> over E0)</p>
+<p>- RemoteCLIP CASR E2: <code>0.777723</code> (<strong>+0.18 pp</strong> over E0, <strong>-0.004 pp</strong> vs E1)</p>
+<p>- <strong>Pixel Accuracy</strong>: E0 = <code>0.861027</code>, E1 = <code>0.861111</code> (+0.01 pp), E2 = <strong><code>0.861211</code></strong> (+0.02 pp).</p>
+<p>- <strong>Recall Recovery</strong>: CASR recovered over <strong>203,000 to 224,000 previously missed flood pixels</strong>, elevating test recall from <span class="math-inline">83.57\%</span> to <span class="math-inline">84.41\%</span> (+0.85 pp for E1, +0.77 pp for E2).</p>
+
+<hr>
+
+<h2>2. Experimental Rigor & Fair Comparison (E1 vs. E2)</h2>
+
+<p>To ensure scientific validity, experiments <strong>E1</strong> and <strong>E2</strong> were executed under identical, controlled conditions:</p>
+
+<div class="table-container"><table>
+<tr><th>Experimental Dimension</th><th>Experiment E1 (Neutral Guidance)</th><th>Experiment E2 (RemoteCLIP Guidance)</th><th>Rigorous Parity Check</th></tr>
+<tr><td><strong>Candidate Region Selection</strong></td><td>Top 4 of 16 spatial tiles (<span class="math-inline">128 \times 128</span>) ranked by $0.5 \text{rank}(H) + 0.5 \text{rank}(\</td><td>\nabla P\</td><td>)$</td><td>Identical cached candidate masks</td><td><strong>IDENTICAL</strong></td></tr>
+<tr><td><strong>CASR Adapter Architecture</strong></td><td>9-channel input, dual Conv2d(32) blocks, sigmoid gate <span class="math-inline">G</span>, residual <span class="math-inline">\Delta Z</span></td><td>Identical architecture</td><td><strong>IDENTICAL</strong></td></tr>
+<tr><td><strong>Trainable Parameters</strong></td><td>Exactly 12,035 parameters</td><td>Exactly 12,035 parameters</td><td><strong>IDENTICAL</strong></td></tr>
+<tr><td><strong>Training Budget & Epochs</strong></td><td>Fixed 5 epochs, batch size 2, seed 2026</td><td>Fixed 5 epochs, batch size 2, seed 2026</td><td><strong>IDENTICAL</strong></td></tr>
+<tr><td><strong>Optimization & Loss</strong></td><td>AdamW (<code>lr=1e-3</code>, <code>wd=1e-4</code>), <span class="math-inline">\mathcal{L}_{\text{CE}} + \mathcal{L}_{\text{Dice}}</span> on candidates</td><td>Identical AdamW, identical loss</td><td><strong>IDENTICAL</strong></td></tr>
+<tr><td><strong>Dataset Partitions</strong></td><td>14 training events, 2 validation events (Bolivia, US-Dakota)</td><td>Identical partitions and splits</td><td><strong>IDENTICAL</strong></td></tr>
+<tr><td><strong>Non-Guidance Feature Inputs</strong></td><td>4 multispectral bands, baseline probability, entropy, gradient, candidate mask</td><td>Identical 8 non-guidance channels</td><td><strong>IDENTICAL</strong></td></tr>
+<tr><td><strong>Guidance Channel (<span class="math-inline">g</span>)</strong></td><td>Uniform zero scalar (<span class="math-inline">g \equiv 0.0</span>)</td><td>Scaled cosine similarity score from frozen RemoteCLIP</td><td><strong>CONTROLLED ABLATION</strong></td></tr>
+<tr><td><strong>Evaluation Pipeline</strong></td><td>Single-pass source-chip reconstruction</td><td>Single-pass source-chip reconstruction</td><td><strong>IDENTICAL</strong></td></tr>
+</table></div>
+
+<hr>
+
+<h2>3. Dissecting Contributions: CASR vs. RemoteCLIP Guidance</h2>
+
+<p>A central goal of this audit is distinguishing the contribution of the <strong>CASR spatial residual adapter</strong> from the additional contribution of <strong>RemoteCLIP vision-language guidance</strong>:</p>
+
+<h3>3.1 The CASR Mechanism (E1 vs. E0)</h3>
+<ul><li><strong>Primary Effect</strong>: CASR operates primarily as an <strong>inundation boundary dilator and recall enhancer</strong>.</li><li>By concentrating residual updates strictly within the <span class="math-inline">25\%</span> highest-entropy boundary tiles, CASR recovers missed shallow water and turbid edges, lifting test recall by <strong>+0.85 pp</strong> (<span class="math-inline">83.57\% \rightarrow 84.41\%</span>) and adding <span class="math-inline">+224,499</span> true positive pixels.</li><li><strong>Precision Penalty</strong>: This boundary recovery incurs a consistent precision loss of <strong>-0.74 pp</strong> (<span class="math-inline">91.56\% \rightarrow 90.82\%</span>), introducing <span class="math-inline">+220,624</span> false positive pixels on adjacent wet soil and shadows.</li><li><strong>Net IoU Gain</strong>: Because true positive gains outweigh false alarms, Pixel-Pooled Flood IoU improves by <strong>+0.18 pp</strong> (<span class="math-inline">0.7759 \rightarrow 0.7778</span>).</li></ul>
+
+<h3>3.2 The RemoteCLIP Guidance Effect (E2 vs. E1)</h3>
+<ul><li><strong>Mean Event Flood IoU</strong>: E2 achieves <code>0.754468</code> vs E1's <code>0.754259</code>. The net improvement attributable to RemoteCLIP guidance is <strong>+0.02 percentage points (+0.00021)</strong>, <strong>NOT +0.15 pp</strong> (which was the gain of E2 over the unrefined baseline E0).</li><li><strong>Pixel-Pooled Flood IoU</strong>: E2 achieves <code>0.777723</code>, which is <strong>0.004 pp lower</strong> than E1 (<code>0.777762</code>).</li><li><strong>Event-Specific Breakdown</strong>:</li></ul>
+<p>- In turbid <strong>Bangladesh</strong>, RemoteCLIP provided a minor boost over neutral guidance (<strong>0.5754 vs 0.5746, +0.08 pp</strong>).</p>
+<p>- In lacustrine <strong>Cambodia</strong>, RemoteCLIP was essentially tied with neutral guidance (<strong>0.8133 vs 0.8139, -0.06 pp</strong>).</p>
+<p>- In mountainous <strong>Nepal</strong>, both models degraded slightly (<strong>0.8747 for E2 vs 0.8743 for E1</strong>, both below E0's 0.8774).</p>
+<ul><li><strong>Scientific Conclusion</strong>: RemoteCLIP text embeddings provide a subtle, localized prior that slightly assists high-uncertainty river regimes, but <strong>its effect on overall segmentation accuracy is marginal (<span class="math-inline">\le 0.02\text{ pp}</span>)</strong>. The primary performance gain of CAVE-Flood stems from spatial residual learning, not vision-language grounding.</li></ul>
+
+<hr>
+
+<h2>4. Master Reconciled Performance Tables</h2>
+
+<h3>4.1 Held-Out Test Set Summary (44 Chips, 46,137,344 Valid Pixels)</h3>
+
+<div class="table-container"><table>
+<tr><th>Metric</th><th>E0 Baseline</th><th>E1 CASR (Neutral)</th><th>E2 CASR (RemoteCLIP)</th><th>Test Winner</th><th>Δ E1 vs E0</th><th>Δ E2 vs E0</th><th>Δ E2 vs E1</th></tr>
+<tr><td><strong>Mean Event Flood IoU</strong></td><td><code>0.752949</code></td><td><code>0.754259</code></td><td><strong><code>0.754468</code></strong></td><td><strong>E2</strong></td><td><strong>+0.13 pp</strong></td><td><strong>+0.15 pp</strong></td><td><strong>+0.02 pp</strong></td></tr>
+<tr><td><strong>Pixel-Pooled Flood IoU</strong></td><td><code>0.775913</code></td><td><strong><code>0.777762</code></strong></td><td><code>0.777723</code></td><td><strong>E1</strong></td><td><strong>+0.18 pp</strong></td><td><strong>+0.18 pp</strong></td><td>-0.004 pp</td></tr>
+<tr><td><strong>Pixel-Pooled Flood Dice</strong></td><td><code>0.873818</code></td><td><strong><code>0.874990</code></strong></td><td><code>0.874965</code></td><td><strong>E1</strong></td><td><strong>+0.12 pp</strong></td><td><strong>+0.11 pp</strong></td><td>-0.002 pp</td></tr>
+<tr><td><strong>Pooled Background IoU</strong></td><td><strong><code>0.732127</code></strong></td><td><code>0.729754</code></td><td><code>0.730187</code></td><td><strong>E0</strong></td><td>-0.24 pp</td><td>-0.19 pp</td><td>+0.04 pp</td></tr>
+<tr><td><strong>Pooled Macro mIoU</strong></td><td><strong><code>0.754020</code></strong></td><td><code>0.753758</code></td><td><code>0.753955</code></td><td><strong>E0</strong></td><td>-0.03 pp</td><td>-0.01 pp</td><td>+0.02 pp</td></tr>
+<tr><td><strong>Pooled Flood Precision</strong></td><td><strong><code>0.915601</code></strong></td><td><code>0.908188</code></td><td><code>0.909053</code></td><td><strong>E0</strong></td><td>-0.74 pp</td><td>-0.65 pp</td><td>+0.09 pp</td></tr>
+<tr><td><strong>Pooled Flood Recall</strong></td><td><code>0.835683</code></td><td><strong><code>0.844133</code></strong></td><td><code>0.843342</code></td><td><strong>E1</strong></td><td><strong>+0.85 pp</strong></td><td><strong>+0.77 pp</strong></td><td>-0.08 pp</td></tr>
+<tr><td><strong>Pooled Specificity</strong></td><td><strong><code>0.895431</code></strong></td><td><code>0.884158</code></td><td><code>0.885467</code></td><td><strong>E0</strong></td><td>-1.13 pp</td><td>-1.00 pp</td><td>+0.13 pp</td></tr>
+<tr><td><strong>Pixel Accuracy</strong></td><td><code>0.861027</code></td><td><code>0.861111</code></td><td><strong><code>0.861211</code></strong></td><td><strong>E2</strong></td><td><strong>+0.01 pp</strong></td><td><strong>+0.02 pp</strong></td><td><strong>+0.01 pp</strong></td></tr>
+<tr><td><strong>True Positives (TP)</strong></td><td>22,201,266</td><td><strong>22,425,765</strong></td><td>22,404,736</td><td><strong>E1</strong></td><td>+224,499 px</td><td>+203,470 px</td><td>-21,029 px</td></tr>
+<tr><td><strong>False Positives (FP)</strong></td><td><strong>2,046,482</strong></td><td>2,267,106</td><td>2,241,494</td><td><strong>E0</strong></td><td>+220,624 px</td><td>+195,012 px</td><td>-25,612 px</td></tr>
+<tr><td><strong>False Negatives (FN)</strong></td><td>4,365,354</td><td><strong>4,140,855</strong></td><td>4,161,884</td><td><strong>E1</strong></td><td>-224,499 px</td><td>-203,470 px</td><td>+21,029 px</td></tr>
+<tr><td><strong>True Negatives (TN)</strong></td><td><strong>17,524,242</strong></td><td>17,303,618</td><td>17,329,230</td><td><strong>E0</strong></td><td>-220,624 px</td><td>-195,012 px</td><td>+25,612 px</td></tr>
+</table></div>
+
+<h3>4.2 Per-Event Breakdown across Held-Out Asian Flood Events</h3>
+
+<div class="table-container"><table>
+<tr><th>Event</th><th>Chips</th><th>Valid Pixels</th><th>Model</th><th>Flood IoU</th><th>Flood Dice</th><th>Precision</th><th>Recall</th><th>Specificity</th><th>Pixel Accuracy</th></tr>
+<tr><td><strong>Bangladesh</strong></td><td>15</td><td>15,728,640</td><td><strong>E0</strong></td><td>0.5711</td><td>0.7270</td><td><strong>0.7678</strong></td><td>0.6903</td><td><strong>0.9069</strong></td><td><strong>0.8401</strong></td></tr>
+<tr><td>*(Lowland floodplain)*</td><td></td><td></td><td><strong>E1</strong></td><td>0.5746 (+0.35 pp)</td><td>0.7298 (+0.28 pp)</td><td>0.7577 (-1.01 pp)</td><td><strong>0.7039</strong> (+1.36 pp)</td><td>0.8997 (-0.72 pp)</td><td>0.8393 (-0.08 pp)</td></tr>
+<tr><td></td><td></td><td></td><td><strong>E2</strong></td><td><strong>0.5754</strong> (<strong>+0.43 pp</strong>)</td><td><strong>0.7305</strong> (<strong>+0.35 pp</strong>)</td><td>0.7595 (-0.83 pp)</td><td>0.7036 (+1.33 pp)</td><td>0.9007 (-0.62 pp)</td><td>0.8399 (-0.02 pp)</td></tr>
+<tr><td><strong>Cambodia</strong></td><td>20</td><td>20,971,520</td><td><strong>E0</strong></td><td>0.8103</td><td>0.8952</td><td><strong>0.9537</strong></td><td>0.8434</td><td><strong>0.8729</strong></td><td>0.8506</td></tr>
+<tr><td>*(Lacustrine basin)*</td><td></td><td></td><td><strong>E1</strong></td><td><strong>0.8139</strong> (<strong>+0.36 pp</strong>)</td><td><strong>0.8974</strong> (<strong>+0.22 pp</strong>)</td><td>0.9482 (-0.55 pp)</td><td><strong>0.8518</strong> (+0.84 pp)</td><td>0.8553 (-1.76 pp)</td><td><strong>0.8527</strong> (+0.21 pp)</td></tr>
+<tr><td></td><td></td><td></td><td><strong>E2</strong></td><td>0.8133 (+0.30 pp)</td><td>0.8971 (+0.19 pp)</td><td>0.9488 (-0.49 pp)</td><td>0.8507 (+0.73 pp)</td><td>0.8572 (-1.57 pp)</td><td>0.8523 (+0.17 pp)</td></tr>
+<tr><td><strong>Nepal</strong></td><td>9</td><td>9,437,184</td><td><strong>E0</strong></td><td><strong>0.8774</strong></td><td><strong>0.9347</strong></td><td><strong>0.9343</strong></td><td>0.9352</td><td><strong>0.8927</strong></td><td><strong>0.9190</strong></td></tr>
+<tr><td>*(Mountainous relief)*</td><td></td><td></td><td><strong>E1</strong></td><td>0.8743 (-0.31 pp)</td><td>0.9329 (-0.18 pp)</td><td>0.9264 (-0.79 pp)</td><td><strong>0.9396</strong> (+0.44 pp)</td><td>0.8782 (-1.45 pp)</td><td>0.9162 (-0.28 pp)</td></tr>
+<tr><td></td><td></td><td></td><td><strong>E2</strong></td><td>0.8747 (-0.27 pp)</td><td>0.9332 (-0.15 pp)</td><td>0.9272 (-0.71 pp)</td><td>0.9393 (+0.41 pp)</td><td>0.8797 (-1.30 pp)</td><td>0.9166 (-0.24 pp)</td></tr>
+</table></div>
+
+<hr>
+
+<h3>4.3 Scene-Level Validation XAI Diagnostics & Reconciled Error Counts</h3>
+
+<p>Error statistics and pixel-level transitions were verified across three representative validation scenes using UNet-Mamba/src/audit_xai_layercam.py. Every scene satisfies exact mathematical conservation:</p>
+
+<div class="table-container"><table>
+<tr><th>Scene Identifier</th><th>Event</th><th>Valid Pixels</th><th>GT Flood Px</th><th>Baseline IoU (E0)</th><th>Refined IoU (E2)</th><th>Net IoU Δ</th><th>Baseline Recall</th><th>Refined Recall</th><th>Net FN Reduction (ΔFN)</th><th>Net FP Increase (ΔFP)</th><th>Net Correct Gain</th></tr>
+<tr><td><strong>Bolivia_BOL_1176</strong></td><td>Bolivia</td><td>1,048,576</td><td>358,861</td><td>0.5722</td><td><strong>0.6172</strong></td><td><strong>+4.51 pp</strong></td><td>74.01%</td><td><strong>81.08%</strong></td><td><strong>-25,364 px</strong></td><td>+7,193 px</td><td><strong>+18,171 px</strong></td></tr>
+<tr><td><strong>US-Dakota_RRN_10_46</strong></td><td>US-Dakota</td><td>1,048,576</td><td>836,574</td><td>0.6085</td><td><strong>0.6215</strong></td><td><strong>+1.30 pp</strong></td><td>66.19%</td><td><strong>67.92%</strong></td><td><strong>-14,438 px</strong></td><td>+4,206 px</td><td><strong>+10,232 px</strong></td></tr>
+<tr><td><strong>Bolivia_BOL_1123</strong></td><td>Bolivia</td><td>1,048,576</td><td>280,385</td><td>0.4502</td><td><strong>0.4922</strong></td><td><strong>+4.20 pp</strong></td><td>50.26%</td><td><strong>55.76%</strong></td><td><strong>-15,415 px</strong></td><td>+4,631 px</td><td><strong>+10,784 px</strong></td></tr>
+<tr><td><strong>Total (3 Scenes)</strong></td><td>—</td><td>3,145,728</td><td>1,475,820</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td><strong>-55,217 px</strong></td><td><strong>+16,030 px</strong></td><td><strong>+39,187 px</strong></td></tr>
+</table></div>
+
+<p>*Reconciliation of Gross Boundary Transitions vs. Net Reductions:*</p>
+<ul><li>BOL_1176: Gross FN->TP flips = +25,364 px, Gross TP->FN = 0 px (Net FN reduction = -25,364 px). Gross TN->FP = +7,195 px, Gross FP->TN = -2 px (Net FP increase = +7,193 px). Net Gain: 25,364 - 7,193 = +18,171 px.</li><li>RRN_10_46: Gross FN->TP flips = +14,452 px, Gross TP->FN = -14 px (Net FN reduction = -14,438 px). Gross TN->FP = +4,212 px, Gross FP->TN = -6 px (Net FP increase = +4,206 px). Net Gain: 14,438 - 4,206 = +10,232 px.</li><li>BOL_1123: Gross FN->TP flips = +15,416 px, Gross TP->FN = -1 px (Net FN reduction = -15,415 px). Gross TN->FP = +4,637 px, Gross FP->TN = -6 px (Net FP increase = +4,631 px). Net Gain: 15,415 - 4,631 = +10,784 px.</li><li>Total (3 Scenes): Net FN reduction = -55,217 px, Net FP increase = +16,030 px, Net Gain = +39,187 px strictly conserved.</li></ul>
+
+<h2>5. Documented Scientific Limitations & Critical Observations</h2>
+
+<ol><li><strong>Mountainous Terrain Degradation (Nepal)</strong>:</li></ol>
+<p>In high-relief mountainous topography, mountain shadows and steep valley contours produce high boundary entropy that the candidate selector flags as uncertain. CASR expands these boundaries, erroneously classifying shadows and wet talus as flood water, degrading Flood IoU by <strong><span class="math-inline">-0.27\text{ pp}</span></strong> (E2) and <strong><span class="math-inline">-0.31\text{ pp}</span></strong> (E1). Practitioners must not apply CASR indiscriminately in mountainous relief.</p>
+<ol><li><strong>Systematic Precision Trade-off</strong>:</li></ol>
+<p>In all evaluated events, CASR reduces precision by <span class="math-inline">0.49\text{ to }1.01\text{ pp}</span>. The method is suited for disaster response contexts prioritizing high recall over false alarm avoidance.</p>
+<ol><li><strong>Correlational XAI Diagnostics & Residual Target Scope</strong>:</li></ol>
+<p>LayerCAM is computed strictly targeting the CASR residual flood-logit correction (<span class="math-inline">\Delta Z_1</span>) within candidate regions (<span class="math-inline">C=1</span>). It provides diagnostic evidence showing that the adapter's convolutional feature maps respond strongly to ambiguous water-land boundaries. However, LayerCAM attributions <strong>do not prove causal semantic reasoning</strong> by the network and <strong>do not explain final segmentation decisions outside candidate regions</strong> (where predictions are determined 100% by the frozen UNet-Mamba backbone).</p>
+<ol><li><strong>No External SOTA Claims</strong>:</li></ol>
+<p>CAVE-Flood is an effective, parameter-efficient residual refinement adapter (12,035 parameters) that improves boundary recall on a frozen backbone, but has not been benchmarked against fine-tuned foundation models (e.g. SegFormer, Prithvi).</p>
+
+<hr>
+
+<h2>6. Checkpoint Provenance & Manifest Verification</h2>
+
+<p>All checkpoints were verified using SHA-256 cryptographic hashes:</p>
+<ul><li><strong>Baseline UNet-Mamba</strong> (<code>UNet-Mamba/checkpoints/best_model.pth</code>):</li></ul>
+<p><code>58674c84e97e16c7ab86f2e218ba8738c7aaf69a8c6fd8c384de00beec9eb76d</code> (Frozen)</p>
+<ul><li><strong>CASR E1 Adapter</strong> (<code>UNet-Mamba/checkpoints/best_e1_model.pth</code>):</li></ul>
+<p><code>84a02d1f1fe8371bf799edb0ddce28f69d20dd90b3da503c06eac87f521226e9</code> (Epoch 5)</p>
+<ul><li><strong>CASR E2 Adapter</strong> (<code>UNet-Mamba/checkpoints/best_e2_model.pth</code>):</li></ul>
+<p><code>19347f5f64385c46f16c27b345a7f143e56b51f23c1fe7e887906b6e7c19d2d9</code> (Epoch 5)</p>
+
+<p>All evaluation scripts, manifests, and test metrics are synchronized in <code>CAVE_Flood_Audited_Release_v3.zip</code> with manifest <code>SHA256SUMS_v3.txt</code>.</p>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+{
+  "sensor": "PS",
+  "total_matched_scenes": 366,
+  "total_events": 19,
+  "event_summary": {
+    "Bangladesh": {
+      "images": 15,
+      "masks": 15,
+      "matched": 15
+    },
+    "Bolivia": {
+      "images": 100,
+      "masks": 100,
+      "matched": 100
+    },
+    "Cambodia": {
+      "images": 20,
+      "masks": 20,
+      "matched": 20
+    },
+    "Colombia": {
+      "images": 12,
+      "masks": 12,
+      "matched": 12
+    },
+    "Ghana": {
+      "images": 20,
+      "masks": 20,
+      "matched": 20
+    },
+    "Nepal": {
+      "images": 9,
+      "masks": 9,
+      "matched": 9
+    },
+    "Nigeria": {
+      "images": 15,
+      "masks": 15,
+      "matched": 15
+    },
+    "Paraguay": {
+      "images": 18,
+      "masks": 18,
+      "matched": 18
+    },
+    "Somalia": {
+      "images": 20,
+      "masks": 20,
+      "matched": 20
+    },
+    "Spain": {
+      "images": 20,
+      "masks": 20,
+      "matched": 20
+    },
+    "US-Alabama": {
+      "images": 16,
+      "masks": 16,
+      "matched": 16
+    },
+    "US-Arkansas": {
+      "images": 4,
+      "masks": 4,
+      "matched": 4
+    },
+    "US-Carolina": {
+      "images": 15,
+      "masks": 15,
+      "matched": 15
+    },
+    "US-Dakota": {
+      "images": 14,
+      "masks": 14,
+      "matched": 14
+    },
+    "US-Kansas": {
+      "images": 20,
+      "masks": 20,
+      "matched": 20
+    },
+    "US-Nebraska": {
+      "images": 16,
+      "masks": 16,
+      "matched": 16
+    },
+    "US-Oklahoma": {
+      "images": 11,
+      "masks": 11,
+      "matched": 11
+    },
+    "US-Texas": {
+      "images": 9,
+      "masks": 9,
+      "matched": 9
+    },
+    "Uzbekistan": {
+      "images": 12,
+      "masks": 12,
+      "matched": 12
+    }
+  },
+  "pixel_distribution": {
+    "background_pixels": 209156698,
+    "flood_pixels": 174622118,
+    "nodata_pixels": 0,
+    "background_percent": 54.5,
+    "flood_percent": 45.5
+  },
+  "imagery_specs": {
+    "channels": 4,
+    "height": 1024,
+    "width": 1024,
+    "dtype": "uint16"
+  }
+}

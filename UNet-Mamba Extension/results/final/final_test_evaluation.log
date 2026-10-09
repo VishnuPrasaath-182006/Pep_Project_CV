@@ -1,0 +1,54 @@
+Execution Timestamp: 2026-10-09 17:45:51
+Test Events (3): ['Bangladesh', 'Cambodia', 'Nepal']
+Execution Device: CPU (deterministic, seed 2026)
+
+Loading Frozen Base UNet-Mamba...
+  Base UNet-Mamba loaded from: best_model.pth (Epoch 10)
+
+Loading Frozen RemoteCLIP Guidance Module...
+  RemoteCLIP ViT-B/32 initialized with scaler from: remoteclip_score_scaler.json
+
+Loading Locked CASR Adapters...
+  CASR E1 loaded from: best_e1_model.pth (Epoch 5)
+  CASR E2 loaded from: best_e2_model.pth (Epoch 5)
+
+Test Manifest Loaded: test.csv (44 scenes across 3 events)
+
+===========================================================================
+BEGINNING INFERENCE PASS ACROSS ALL 44 TEST SCENES...
+===========================================================================
+
+Inference completed in 342.22 seconds (7.78 s/scene)
+Total Unique Valid Test Pixels Evaluated: 46,137,344
+
+===========================================================================
+FINAL TEST SUMMARY (OVERALL ACROSS HELD-OUT EVENTS)
+===========================================================================
+experiment  mean_event_flood_iou  std_event_flood_iou  pooled_flood_iou  pooled_flood_dice  pooled_macro_miou  pooled_precision  pooled_recall
+        E0              0.752949             0.131469          0.775913           0.873818           0.754020          0.915601       0.835683
+        E1              0.754259             0.129421          0.777762           0.874990           0.753758          0.908188       0.844133
+        E2              0.754468             0.129101          0.777723           0.874965           0.753955          0.909053       0.843342
+
+===========================================================================
+FINAL TEST EVENT-BY-EVENT BREAKDOWN
+===========================================================================
+experiment      event  chips  flood_iou  flood_dice  flood_precision  flood_recall
+        E0 Bangladesh     15   0.571111    0.727016         0.767829      0.690323
+        E0   Cambodia     20   0.810288    0.895204         0.953739      0.843438
+        E0      Nepal      9   0.877446    0.934723         0.934270      0.935177
+        E1 Bangladesh     15   0.574574    0.729815         0.757741      0.703874
+        E1   Cambodia     20   0.813937    0.897426         0.948177      0.851831
+        E1      Nepal      9   0.874265    0.932915         0.926372      0.939552
+        E2 Bangladesh     15   0.575362    0.730451         0.759488      0.703552
+        E2   Cambodia     20   0.813340    0.897063         0.948752      0.850715
+        E2      Nepal      9   0.874703    0.933164         0.927155      0.939252
+
+===========================================================================
+ABSOLUTE DIFFERENCES (IN PERCENTAGE POINTS pp OVER BASELINE E0):
+===========================================================================
+E1 Mean Event Flood IoU: 0.7543 vs E0 0.7529 -> +0.13 pp
+E2 Mean Event Flood IoU: 0.7545 vs E0 0.7529 -> +0.15 pp
+E1 Pooled Flood IoU:     0.7778 vs E0 0.7759 -> +0.18 pp
+E2 Pooled Flood IoU:     0.7777 vs E0 0.7759 -> +0.18 pp
+E1 Pooled Dice:          0.8750 vs E0 0.8738 -> +0.12 pp
+E2 Pooled Dice:          0.8750 vs E0 0.8738 -> +0.11 pp

@@ -1,0 +1,113 @@
+================================================================================
+UNET-MAMBA FLOOD INUNDATION SEGMENTATION SYSTEM - FOLDER STRUCTURE & DETAILS
+================================================================================
+
+--------------------------------------------------------------------------------
+1. OUTPUT FILES & GENERATED ARTIFACTS (results/ & checkpoints/)
+--------------------------------------------------------------------------------
+
+A. Figures & Visualizations (results/figures/)
+   - results/figures/training_curves.png
+     4-panel plot showing Train/Val Loss, Validation mIoU, Flood Dice Score, and Cosine Learning Rate Schedule across all 11 epochs.
+   - results/figures/confusion_matrix.png
+     Normalized binary confusion matrix plot on held-out test flood events.
+   - results/figures/raw_samples/
+     Diagnostic RGB + NIR multi-spectral preview plots from raw satellite imagery (Bangladesh, Bolivia, Nigeria, US-Carolina, Uzbekistan).
+   - results/figures/processed_comparisons/
+     Patch-level comparison plots showing extracted 512x512 PlanetScope imagery patches alongside their ground-truth flood masks.
+
+B. Training Logs & History (results/logs/)
+   - results/logs/train.log
+     Complete execution log recording epoch progress, iteration speeds, loss values, VRAM memory usage, and checkpoint save triggers.
+   - results/logs/training_history.csv
+     Epoch-by-epoch CSV log containing exact numbers for train_loss, val_loss, val_bg_iou, val_flood_iou, val_mean_iou, val_dice, val_precision, val_recall, val_accuracy, learning rates, and peak VRAM.
+   - results/logs/training_history.json
+     Structured JSON version of the full 11-epoch training history.
+
+C. Quantitative Evaluation Metrics (results/metrics/)
+   - results/metrics/test_metrics.csv
+     Overall benchmark metrics (mIoU, Flood IoU, Background IoU, Dice/F1, Precision, Recall, Accuracy) evaluated on held-out test events (Bangladesh, Cambodia, Nepal).
+   - results/metrics/test_metrics.json
+     JSON format of full test set performance scores.
+   - results/metrics/per_event_metrics.csv
+     Event-by-event performance breakdown comparing model predictions across individual geographical flood locations.
+
+D. Data Inspection Reports (results/reports/)
+   - results/reports/raw_data_inspection.md
+     Technical markdown report summarizing raw dataset scenes, spatial dimensions, sensor metadata, and band counts.
+   - results/reports/raw_data_inventory.csv
+     Scene-by-scene index of all PlanetScope satellite image tiles.
+   - results/reports/processed_data_inspection.md
+     Summary report of extracted 512x512 patches, split totals, and normalization statistics.
+   - results/reports/class_distribution.csv & event_counts.csv
+     Pixel class balance tables (Background vs Flood vs Nodata) and event scene distribution counts.
+
+E. Model Checkpoints (checkpoints/)
+   - checkpoints/best_model.pth
+     Model weights snapshot that achieved the highest Validation mIoU (0.6434 at Epoch 10).
+   - checkpoints/final_epoch_11.pth
+     Final trained model weights at the conclusion of Epoch 11.
+   - checkpoints/last_checkpoint.pth
+     Full state checkpoint (model + optimizer + scheduler + epoch index) enabling resume capabilities.
+
+
+--------------------------------------------------------------------------------
+2. CORE PYTHON SOURCE FILES (src/ & Root)
+--------------------------------------------------------------------------------
+
+   - run_pipeline.py
+     Master CLI runner supporting --stage execution (inspect-raw, split, preprocess, verify, train, evaluate, visualize, all).
+   - src/model.py
+     Authentic UNet-Mamba PyTorch architecture combining ResT backbone encoder with 2D Selective State Space (SS2D), VSSBlock, and Local Supervision Modules (LSM).
+   - src/train.py
+     11-epoch training engine featuring bfloat16 AMP, Cosine Annealing learning rate schedule, parameter group separation, and checkpointing.
+   - src/losses.py
+     Compound UnetMambaLoss integrating Soft Cross-Entropy, Dice Loss, and LSM Auxiliary stage supervision.
+   - src/dataset.py
+     PyTorch FloodPlanetPatchDataset with fast RAM pre-caching and 4-band z-score normalization.
+   - src/transforms.py
+     Synchronized geometric augmentations (flips, 90-degree rotations).
+   - src/metrics.py
+     Confusion matrix and IoU/Dice metric tracker (MetricTracker).
+   - src/evaluate.py
+     Test set evaluation engine on held-out flood events.
+   - src/inference.py
+     Tiled full-scene inference engine for large satellite rasters.
+   - src/visualize.py
+     Plotting utilities for training curves, confusion matrices, and segmentation overlays.
+   - src/split_manager.py
+     Fixed event-level dataset splitter (prevents spatial data leakage).
+   - src/preprocessing.py
+     Patch extraction module (512x512 patches with configurable stride).
+   - src/inspect_raw_data.py & src/inspect_processed_data.py
+     Inspection & validation suites for raw scenes and extracted patches.
+   - src/verify_pipeline.py
+     End-to-end unit test & automated verification suite.
+   - src/config.py & src/utils.py
+     Configuration loader, random seed setter, logger, and VRAM monitors.
+
+
+--------------------------------------------------------------------------------
+3. DATASET SPLIT MANIFESTS (manifests/)
+--------------------------------------------------------------------------------
+
+   - manifests/train.csv
+     Index of 14 training flood events (208 scenes / 1,872 patches).
+   - manifests/val.csv
+     Index of 2 validation flood events (114 scenes / 1,026 patches).
+   - manifests/test.csv
+     Index of 3 held-out test flood events (Bangladesh, Cambodia, Nepal - 44 scenes / 396 patches).
+
+
+--------------------------------------------------------------------------------
+4. CONFIGURATION & ENVIRONMENT FILES
+--------------------------------------------------------------------------------
+
+   - configs/train_config.yaml
+     Central YAML configuration managing hyperparameters (epochs, learning rate, loss weights, channels).
+   - README.md
+     Complete research-grade project documentation and pipeline guide.
+   - requirements.txt & environment.yml
+     Python dependencies (PyTorch, timm, einops, pandas, matplotlib, tqdm).
+   - .gitignore
+     Git exclusion rules protecting local dataset caches while tracking code and results.
