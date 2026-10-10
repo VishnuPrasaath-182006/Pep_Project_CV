@@ -1,5 +1,11 @@
 # Satellite Flood Inundation Semantic Segmentation Suite
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Gradio%20Website-0284c7?style=for-the-badge&logo=gradio)](https://3f615832804328bf5d.gradio.live/)
+[![Model Hub](https://img.shields.io/badge/Hugging%20Face-Model%20Weights-orange?style=for-the-badge&logo=huggingface)](https://huggingface.co/VP182006/CAVE-Flood-Weights)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge&logo=github)](https://github.com/VishnuPrasaath-182006/Pep_Project_CV)
+
+> 🌐 **Public Live Demonstration Website**: [https://3f615832804328bf5d.gradio.live/](https://3f615832804328bf5d.gradio.live/)
+
 A unified research and benchmarking suite for high-resolution ($3\text{m}$) multispectral satellite flood inundation mapping using PlanetScope 4-band optical imagery.
 
 This repository consolidates three computer vision and deep learning paradigms for disaster response and flood extent mapping:
@@ -178,6 +184,21 @@ python scripts/evaluate_all_folds.py --config configs/loeo_config.yaml
 ```powershell
 python scripts/inference_single.py --image-path "path/to/chip.tif" --fold 0 --output-dir "outputs/predictions"
 ```
+
+---
+
+### 5.4 Live Demonstration Website (`Gradio website/`)
+
+- 🌐 **Live Public URL**: [https://3f615832804328bf5d.gradio.live/](https://3f615832804328bf5d.gradio.live/)
+- 📦 **Hugging Face Model Weights**: [https://huggingface.co/VP182006/CAVE-Flood-Weights](https://huggingface.co/VP182006/CAVE-Flood-Weights)
+- 🤗 **Hugging Face Space**: [https://huggingface.co/spaces/VP182006/CAVE-Flood](https://huggingface.co/spaces/VP182006/CAVE-Flood)
+
+#### Launch Locally:
+```powershell
+cd "Gradio website"
+python app.py
+```
+*Accessible locally at `http://localhost:7860`.*
 
 ---
 

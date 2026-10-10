@@ -705,5 +705,24 @@ if __name__ == "__main__":
             
     print("=" * 60)
     print("Starting Gradio Web Server...")
-    demo.queue().launch(server_name="0.0.0.0", server_port=7860, share=False, css=custom_css, theme=gr.themes.Base())
+    _, local_url, share_url = demo.queue().launch(
+        server_name="0.0.0.0",
+        server_port=7860,
+        share=True,
+        prevent_thread_lock=True,
+        css=custom_css,
+        theme=gr.themes.Base()
+    )
+    print("=" * 60)
+    print(f"[*] LIVE PUBLIC URL : {share_url}")
+    print(f"[*] LOCAL URL       : {local_url}")
+    print("=" * 60)
+    try:
+        (DEPLOYMENT_DIR / "share_url.txt").write_text(str(share_url), encoding="utf-8")
+    except Exception:
+        pass
+        
+    import time
+    while True:
+        time.sleep(1)
 

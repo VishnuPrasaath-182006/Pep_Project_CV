@@ -96,3 +96,8 @@ outputs/logs/*.log
 Thumbs.db
 ehthumbs.db
 desktop.ini
+
+# Gradio cache and local runtime tunnels
+.gradio/
+Gradio website/share_url.txt
+

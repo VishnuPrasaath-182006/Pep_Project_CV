@@ -12,6 +12,10 @@ license: mit
 
 # CAVE-Flood: Confidence-Aware Vision-Language-Guided Residual Refinement
 
+> 🌐 **Public Live Demonstration Website**: [https://3f615832804328bf5d.gradio.live/](https://3f615832804328bf5d.gradio.live/)
+> 📦 **Hugging Face Model Weights**: [https://huggingface.co/VP182006/CAVE-Flood-Weights](https://huggingface.co/VP182006/CAVE-Flood-Weights)
+> 🤗 **Hugging Face Space**: [https://huggingface.co/spaces/VP182006/CAVE-Flood](https://huggingface.co/spaces/VP182006/CAVE-Flood)
+
 A research demonstration web application for high-resolution ($3\text{m}$) multispectral satellite flood extent mapping using PlanetScope 4-band optical imagery.
 
 CAVE-Flood introduces parameter-efficient residual adaptation to satellite disaster response:
