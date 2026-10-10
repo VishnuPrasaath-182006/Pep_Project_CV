@@ -1,0 +1,103 @@
+# ==============================================================================
+# Unified .gitignore for Flood Inundation Segmentation Suite
+# ==============================================================================
+
+# Python bytecode and build artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.pyd
+*.pyo
+.Python
+build/
+dist/
+*.egg-info/
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+.installed.cfg
+*.egg
+
+# Testing & Cache
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+
+# Large Model Checkpoints & Weights (>100MB)
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.ckpt
+checkpoints/*.pth
+checkpoints/*.pt
+outputs/checkpoints/*.pt
+outputs/checkpoints/*.pth
+!**/checkpoints/.gitkeep
+!**/outputs/checkpoints/.gitkeep
+
+# Dataset Archives & Raw Geospatial Rasters
+Dataset/
+**/Dataset/
+Datasets/
+data/raw/
+*.tif
+*.tiff
+*.geotiff
+
+# Precomputed Cache & Heavy Binary Arrays (>2GB)
+**/manifests/processed_data/
+processed_data/
+outputs/cache/
+**/cache/
+*.npz
+
+# Exclude Standalone Master Results Folder (Per instruction: do not upload C:\Users\AI\Pictures\results)
+/results/
+
+# Exclude Windows system folders
+Screenshots/
+
+
+# Large Archives & Compressed Packages
+*.zip
+*.tar.gz
+*.tar.bz2
+*.7z
+
+# Logs & Runtime Outputs
+*.log
+outputs/logs/*.log
+
+# IDE & Editor Configurations
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Gradio cache and local runtime tunnels
+.gradio/
+Gradio website/share_url.txt
+

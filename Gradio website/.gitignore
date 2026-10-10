@@ -1,9 +1,0 @@
-__pycache__/
-*.py[cod]
-.venv/
-venv/
-*.tif_temp
-outputs/
-temp/
-.DS_Store
-Thumbs.db

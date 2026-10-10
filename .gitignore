@@ -1,103 +1,57 @@
-# ==============================================================================
-# Unified .gitignore for Flood Inundation Segmentation Suite
-# ==============================================================================
+# Node & Frontend
+Frontend/node_modules/
+Frontend/dist/
+Frontend/.vite/
+node_modules/
+dist/
 
-# Python bytecode and build artifacts
+# Python & Backend
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
-*.pyd
-*.pyo
-.Python
-build/
-dist/
-*.egg-info/
-develop-eggs/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-.installed.cfg
-*.egg
-
-# Testing & Cache
 .pytest_cache/
 .coverage
 htmlcov/
+*.log
 
-# Virtual Environments
-.venv/
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Virtual environments
 venv/
 env/
 ENV/
+.venv/
 
-# Large Model Checkpoints & Weights (>100MB)
-*.pt
-*.pth
-*.bin
-*.safetensors
-*.ckpt
-checkpoints/*.pth
-checkpoints/*.pt
-outputs/checkpoints/*.pt
-outputs/checkpoints/*.pth
-!**/checkpoints/.gitkeep
-!**/outputs/checkpoints/.gitkeep
-
-# Dataset Archives & Raw Geospatial Rasters
-Dataset/
-**/Dataset/
-Datasets/
-data/raw/
-*.tif
-*.tiff
-*.geotiff
-
-# Precomputed Cache & Heavy Binary Arrays (>2GB)
-**/manifests/processed_data/
-processed_data/
-outputs/cache/
-**/cache/
-*.npz
-
-# Exclude Standalone Master Results Folder (Per instruction: do not upload C:\Users\AI\Pictures\results)
-/results/
-
-# Exclude Windows system folders
-Screenshots/
-
-
-# Large Archives & Compressed Packages
-*.zip
-*.tar.gz
-*.tar.bz2
-*.7z
-
-# Logs & Runtime Outputs
-*.log
-outputs/logs/*.log
-
-# IDE & Editor Configurations
+# IDE & OS
 .vscode/
 .idea/
-*.swp
-*.swo
-*.sublime-project
-*.sublime-workspace
-
-# Operating System Files
 .DS_Store
 Thumbs.db
-ehthumbs.db
-desktop.ini
+*.tmp
 
-# Gradio cache and local runtime tunnels
-.gradio/
-Gradio website/share_url.txt
+# Large Model Checkpoints & Datasets (>50MB / GitHub limits)
+*.pth
+*.pth.zip
+*.pt
+*.zip
+*.tar.gz
+*.h5
+*.bin
 
+# Backend storage generated artifacts
+Backend/storage/uploads/*
+!Backend/storage/uploads/.gitkeep
+Backend/storage/previews/*
+!Backend/storage/previews/.gitkeep
+Backend/storage/masks/*
+!Backend/storage/masks/.gitkeep
+Backend/storage/overlays/*
+!Backend/storage/overlays/.gitkeep
+Backend/storage/exports/*
+!Backend/storage/exports/.gitkeep
+Backend/storage/results/*
+!Backend/storage/results/.gitkeep

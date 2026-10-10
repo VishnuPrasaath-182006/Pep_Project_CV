@@ -1,210 +1,166 @@
-# Satellite Flood Inundation Semantic Segmentation Suite
+# CAVE-Flood: Intelligent Satellite Flood Inundation Analysis Platform
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Gradio%20Website-0284c7?style=for-the-badge&logo=gradio)](https://3f615832804328bf5d.gradio.live/)
-[![Model Hub](https://img.shields.io/badge/Hugging%20Face-Model%20Weights-orange?style=for-the-badge&logo=huggingface)](https://huggingface.co/VP182006/CAVE-Flood-Weights)
-[![GitHub](https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge&logo=github)](https://github.com/VishnuPrasaath-182006/Pep_Project_CV)
+[![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688.svg?logo=fastapi)](https://fastapi.tiangolo.com)
+[![React](https://img.shields.io/badge/Frontend-React%20%2B%20Vite-61DAFB.svg?logo=react)](https://react.dev)
+[![PyTorch](https://img.shields.io/badge/AI%20Framework-PyTorch%202.x-EE4C2C.svg?logo=pytorch)](https://pytorch.org)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-> 🌐 **Public Live Demonstration Website**: [https://3f615832804328bf5d.gradio.live/](https://3f615832804328bf5d.gradio.live/)
-
-A unified research and benchmarking suite for high-resolution ($3\text{m}$) multispectral satellite flood inundation mapping using PlanetScope 4-band optical imagery.
-
-This repository consolidates three computer vision and deep learning paradigms for disaster response and flood extent mapping:
-1. **Classical CNN Baseline**: 4-Channel ResNet-34 U-Net (`unet/`)
-2. **State Space Foundation & Parameter-Efficient Refinement**: UNet-Mamba and CAVE-Flood CASR with RemoteCLIP Vision-Language Guidance (`BaseModel and its Extension/`)
-3. **Hierarchical Vision Transformer**: SegFormer-B2 with Leave-One-Event-Out Cross-Validation across 19 global events (`SegFormer/`)
+A full-stack, research-grade geospatial web application for high-resolution satellite flood inundation segmentation. Built around **UNet-Mamba**, **Context-Aware Spatial Refinement (CASR)**, and **RemoteCLIP** vision-language guidance.
 
 ---
 
-## 1. Model Architectures & Approaches
-
-| Model | Architecture Family | Input Channels | Total Parameters | Trainable Parameters | Key Innovation / Role |
-| :--- | :--- | :---: | :---: | :---: | :--- |
-| **U-Net** | Convolutional Encoder-Decoder (ResNet-34) | 4 (B, G, R, NIR) | 17.27 M | 17.27 M | Fast, lightweight classical baseline with standard sliding-window inference |
-| **UNet-Mamba** | Hybrid CNN + 2D Selective State Space (SS2D) | 4 (B, G, R, NIR) | 14.29 M | 14.29 M | Linear-complexity long-range spatial context modeling for satellite rasters |
-| **CAVE-Flood E0** | Frozen UNet-Mamba Backbone | 4 (B, G, R, NIR) | 14.29 M | 0 (Frozen) | Base foundation model reference without residual adaptation |
-| **CAVE-Flood E1** | Frozen UNet-Mamba + CASR Adapter (Neutral) | 4 (B, G, R, NIR) | 14.30 M | 12,035 (0.084%) | Confidence-aware boundary refinement gated on top 25% uncertain boundary regions |
-| **CAVE-Flood E2** | Frozen UNet-Mamba + CASR Adapter (RemoteCLIP) | 4 (B, G, R, NIR) | 14.30 M | 12,035 (0.084%) | Vision-language guided boundary refinement using satellite-domain text-image cosine embeddings |
-| **SegFormer-B2** | Hierarchical Mix Transformer (MiT-B2 + All-MLP) | 3 (R, G, B) | 27.50 M | 27.50 M | Global self-attention benchmark evaluated under rigorous Leave-One-Event-Out (LOEO) cross-validation |
-
----
-
-## 2. Repository Structure
+## 📁 Project Architecture & Folder Structure
 
 ```
-.
-├── README.md                          # Master unified documentation (this file)
-├── requirements.txt                   # Consolidated Python dependencies for all models
-├── .gitignore                         # Master git exclusion rules
+PEP_Project_CV/
+├── Frontend/                           # React.js + Vite Web Application
+│   ├── public/                         # Public static assets & sample chips
+│   ├── src/
+│   │   ├── assets/                     # Icons and vector graphics
+│   │   ├── components/                 # UI components (Header, Uploader, Viewer, etc.)
+│   │   │   ├── Header.jsx              # System health & global navigation
+│   │   │   ├── ImageUploader.jsx       # 3-mode drag-and-drop satellite uploader
+│   │   │   ├── ImageMetadataPanel.jsx  # Raster metadata & CRS inspector
+│   │   │   ├── ModelSelector.jsx       # Dynamic architecture selector with status
+│   │   │   ├── InferenceViewer.jsx     # Side-by-side & opacity slider visualizer
+│   │   │   ├── MetricsCard.jsx         # Quantitative flood statistics & delta audit
+│   │   │   ├── ModelComparisonView.jsx # E0 vs E1 vs E2 comparative matrix
+│   │   │   ├── XAIViewer.jsx           # LayerCAM CASR residual attribution
+│   │   │   ├── GroundTruthEvaluator.jsx# Authentic IoU/Dice validation upload
+│   │   │   ├── ExportToolbar.jsx       # Download PNGs, GeoTIFF, JSON, CSV, ZIP
+│   │   │   └── AboutModal.jsx          # Model formulation & scientific details
+│   │   ├── services/                   # Frontend API client (api.js)
+│   │   ├── hooks/                      # Custom React hooks
+│   │   ├── utils/                      # Formatting & image utilities
+│   │   ├── styles/                     # Tailwind CSS & design tokens
+│   │   │   └── index.css
+│   │   ├── App.jsx                     # Main application layout
+│   │   └── main.jsx                    # Vite entry point
+│   ├── package.json
+│   ├── vite.config.js
+│   ├── tailwind.config.js
+│   └── .env.example
 │
-├── BaseModel and its Extension/       # Mamba & Vision-Language Architectures
-│   ├── UNet-Mamba/                    # Base State Space Model implementation
-│   │   ├── configs/                   # Model and dataset hyperparameters
-│   │   ├── manifests/                 # Geographic event manifests and split indices
-│   │   ├── src/                       # UNet-Mamba model, dataset & training modules
-│   │   └── run_pipeline.py            # Baseline execution entrypoint
-│   │
-│   └── UNet-Mamba Extension/          # CAVE-Flood Residual Refinement (Audited)
-│       ├── artifacts/                 # XAI summary, RemoteCLIP scaler, and cache
-│       ├── checkpoints/               # Trained model weights (best_model.pth, best_e1_model.pth, best_e2_model.pth)
-│       ├── configs/                   # Training and evaluation configs (train_config.yaml)
-│       ├── manifests/                 # Geographic partition manifests
-│       └── src/                       # CASR adapter head, RemoteCLIP guidance, and LayerCAM modules
+├── Backend/                            # FastAPI Python Backend
+│   ├── app/
+│   │   ├── api/
+│   │   │   └── endpoints.py            # REST endpoints (health, predict, compare, XAI)
+│   │   ├── core/
+│   │   │   ├── config.py               # Settings, constants, and paths
+│   │   │   └── registry.py             # Model discovery, checksums & availability
+│   │   ├── services/
+│   │   │   ├── inference_service.py    # Singleton model runner (E0, E1, E2)
+│   │   │   ├── comparison_service.py   # Multi-model comparative runner
+│   │   │   └── export_service.py       # Result caching & ZIP/CSV/JSON packager
+│   │   ├── schemas/
+│   │   │   └── models.py               # Pydantic request/response schemas
+│   │   ├── utils/
+│   │   │   ├── image_adapter.py        # Universal multi-format loader (uint16/uint8)
+│   │   │   ├── geo_inspector.py        # Rasterio/PIL metadata extractor (CRS, bounds)
+│   │   │   ├── preprocessing.py        # 4-band PlanetScope normalization & 512x512 tiling
+│   │   │   ├── visualization.py        # Fast base64 PNG and heatmap encoders
+│   │   │   ├── xai.py                  # LayerCAM gradient attribution engine
+│   │   │   └── module_loader.py        # Dynamic namespace-isolated Python loader
+│   │   └── main.py                     # FastAPI application setup & CORS middleware
+│   ├── tests/                          # Pytest suite
+│   │   ├── test_model_registry.py      # Checkpoint integrity & discovery tests
+│   │   ├── test_api.py                 # REST endpoint integration tests
+│   │   ├── test_inference.py           # E0/E1/E2 parity & zero-residual invariance
+│   │   └── fixtures/                   # Sample test chips & optical benchmarks
+│   ├── requirements.txt
+│   └── .env.example
 │
-├── SegFormer/                         # Hierarchical Transformer Pipeline
-│   ├── configs/                       # LOEO-CV configuration (loeo_config.yaml)
-│   ├── manifests/                     # 19-event leave-one-out splits (splits_19_events.json)
-│   ├── scripts/                       # Training, evaluation & inference runners
-│   └── src/                           # Dataset loaders, SegFormer wrapper & metrics
+├── Models/                             # Research Models & Checkpoints
+│   ├── Unet/                           # Standard U-Net baseline code, configs, results
+│   ├── UNet-Mamba/                     # UNet-Mamba base model & trained weights
+│   │   ├── checkpoints/                # best_model.pth (171 MB), best_e1_model.pth, best_e2_model.pth
+│   │   ├── configs/                    # Model training configurations
+│   │   ├── src/                        # UNetMamba state-space implementation
+│   │   └── CAVE-Flood/                 # CAVE-Flood CASR Extension & RemoteCLIP weights
+│   │       ├── checkpoints/            # best_e1_model.pth, best_e2_model.pth, scaler
+│   │       ├── weights/                # RemoteCLIP-ViT-B-32.pt (605 MB)
+│   │       ├── configs/                # Prompts config & hyperparameters
+│   │       ├── results/                # Research evaluation summaries & logs
+│   │       └── src/                    # casr.py, candidate_selector.py, XAI scripts
+│   └── SegFormer/                      # SegFormer-B2 implementation, LOEO splits, outputs
 │
-├── Gradio website/                    # Public Web Demonstration (Hugging Face Spaces)
-│   ├── app.py                         # Gradio Blocks frontend & inference orchestrator
-│   ├── image_adapter.py               # Universal multi-format ingestion & compatibility gating
-│   ├── inference.py                   # E0/E1/E2 inference & model manager
-│   ├── preprocessing.py               # 4-band satellite preprocessing & RGB preview
-│   ├── visualization.py               # Mask, overlay, comparison & XAI visualizers
-│   ├── xai_utils.py                   # LayerCAM & ground-truth validation metrics
-│   ├── checkpoints/                   # Audited PyTorch model weights
-│   ├── examples/                      # Compatible sample GeoTIFF rasters & test images
-│   └── tests/                         # Automated deployment verification suite
-│
-└── unet/                              # Standalone Classical U-Net Baseline
-    ├── configs/                       # Base U-Net parameters (base_unet.yaml, paths.yaml)
-    ├── scripts/                       # Sliding-window inference (predict_floodplanet.py)
-    ├── src/                           # 4-channel model, dataset, dataloader & train loop
-    ├── tests/                         # Architecture verification & forward-pass unit tests (test_model.py)
-    ├── run_inference.ps1              # 1-click prediction runner for Windows PowerShell
-    ├── setup_windows.bat              # Setup batch script for Windows Command Prompt
-    └── setup_windows.ps1              # Setup script for Windows PowerShell
+├── .gitignore
+├── README.md
+└── requirements.txt
 ```
 
 ---
 
-## 3. Dataset & Sensor Specifications
+## 🔒 Cryptographic Checkpoint Verification Ledger
 
-All models evaluate against PlanetScope high-resolution optical satellite imagery from the **FloodPlanet** benchmark:
+All model checkpoints have been cryptographically verified against their original research values:
 
-- **Spatial Resolution**: $3\text{m}$ ground sample distance (GSD).
-- **Spectral Bands**:
-  - Band 1: Blue ($\sim 455\text{--}515\,\text{nm}$)
-  - Band 2: Green ($\sim 500\text{--}590\,\text{nm}$)
-  - Band 3: Red ($\sim 590\text{--}670\,\text{nm}$)
-  - Band 4: Near-Infrared / NIR ($\sim 780\text{--}860\,\text{nm}$)
-- **Target Classes**:
-  - `0`: Non-Flood / Land / Background
-  - `1`: Flood Inundated Water Body
-  - `255` / `-1`: Ignore / Invalid / Nodata
-- **Geographic Flood Events**: 19 global events across diverse ecological, hydrological, and urban landscapes (Bangladesh, Bolivia, Cambodia, Colombia, Ghana, Nepal, Nigeria, Paraguay, Somalia, Spain, United States regions, Uzbekistan).
+| Model Architecture | Artifact File | File Size | SHA-256 Checksum | Availability Status |
+| :--- | :--- | :--- | :--- | :--- |
+| **UNet-Mamba (E0)** | `best_model.pth` | 171,815,178 bytes | `58674c84e97e16c7ab86f2e218ba8738c7aaf69a8c6fd8c384de00beec9eb76d` | ✅ **Verified & Ready** |
+| **UNet-Mamba + CASR (E1)** | `best_e1_model.pth` | 54,430 bytes | `84a02d1f1fe8371bf799edb0ddce28f69d20dd90b3da503c06eac87f521226e9` | ✅ **Verified & Ready** |
+| **CAVE-Flood Full (E2)** | `best_e2_model.pth` | 54,430 bytes | `19347f5f64385c46f16c27b345a7f143e56b51f23c1fe7e887906b6e7c19d2d9` | ✅ **Verified & Ready** |
+| **RemoteCLIP Vision-Language** | `RemoteCLIP-ViT-B-32.pt` | 605,208,421 bytes | `60014e395d930a3f2963d1d89c8522bf4ad56775571e4356e866864789af85c4` | ✅ **Verified & Ready** |
+| **RemoteCLIP Scaler** | `remoteclip_score_scaler.json` | 149 bytes | `e46396fd03cd198f2168d8b36c71bca572ba84d1b3f540ef01898b63c9a9a70e` | ✅ **Verified & Ready** |
+| **Standard U-Net** | `best_model.pth` | Pending | — | ℹ️ Preserved (Pending Training) |
+| **SegFormer-B2** | `best_model.pth` | Pending | — | ℹ️ Preserved (Pending Training) |
 
 ---
 
-## 4. Unified Environment Setup
+## 🚀 Quickstart Guide: Running Locally
 
-Ensure Python $\ge 3.10$ is installed, then set up the consolidated environment from the repository root:
-
-### Option A: Standard Virtual Environment (Recommended)
-
-```powershell
-# Create virtual environment
-python -m venv .venv
-
-# Activate on Windows PowerShell
-.venv\Scripts\Activate.ps1
-
-# Upgrade pip and install consolidated requirements
-pip install --upgrade pip
-pip install -r requirements.txt
-```
-
-### Option B: Conda Environment
+### 1. Start the FastAPI Backend
 
 ```bash
-conda create -n flood_seg python=3.11 -y
-conda activate flood_seg
-pip install -r requirements.txt
+# From repository root:
+python -m uvicorn Backend.app.main:app --host 127.0.0.1 --port 8000 --reload
+```
+- API Base: `http://127.0.0.1:8000`
+- Interactive Swagger Documentation: `http://127.0.0.1:8000/docs`
+- Health Endpoint: `http://127.0.0.1:8000/api/health`
+
+### 2. Start the React Frontend
+
+```bash
+# In a separate terminal:
+cd Frontend
+npm run dev
+```
+- Web Application: `http://localhost:5173`
+
+---
+
+## 🧪 Running Automated Tests
+
+```bash
+# Run backend unit, integration, and model parity tests:
+python -m pytest Backend/tests -v
 ```
 
 ---
 
-## 5. Usage & Execution Guides
+## 🛰️ Supported Satellite Input Modes
 
-### 5.1 Standalone U-Net (`unet/`)
-
-#### Run Verification & Diagnostic Self-Test:
-```powershell
-cd unet
-python tests/test_model.py
-```
-*Outputs a complete diagnostic table including compute device, parameter footprint ($17,268,034$), simulated tensor passes, and 4 passing unit tests.*
-
-#### Run Sliding-Window Inference:
-```powershell
-python scripts/predict_floodplanet.py --image "path/to/scene.tif" --checkpoint "checkpoints/best_val_iou.pth" --output-dir "outputs/predictions"
-```
+1. **Mode 1 — Native 4-Band Multispectral Inference (Scientific Standard):**
+   - GeoTIFF / TIFF rasters with 4 channels: `[Red, Green, Blue, Near-Infrared (NIR)]`.
+   - Uses strict dataset normalization: Mean `[2334.81, 2378.43, 2185.12, 3608.97]`, Std `[1245.52, 1184.21, 1148.65, 1420.33]`.
+2. **Mode 2 — RGB Satellite Inspection:**
+   - Standard optical imagery (`.png`, `.jpg`, `.jpeg`, `.webp`, `.bmp`).
+   - Extracts complete raster dimensions, data types, and channel allocations with optional synthetic NIR demonstration inference.
+3. **Mode 3 — RGB + NIR Dual Upload:**
+   - Paired high-resolution optical satellite RGB imagery with corresponding calibrated NIR band rasters.
 
 ---
 
-### 5.2 UNet-Mamba & CAVE-Flood Extension (`BaseModel and its Extension/`)
+## 🔬 Mathematical Formulation
 
-#### UNet-Mamba Baseline Pipeline:
-```powershell
-cd "BaseModel and its Extension\UNet-Mamba"
-python run_pipeline.py --mode evaluate --config configs/unetmamba_config.py
-```
+CAVE-Flood implements strict residual spatial refinement:
 
-#### CAVE-Flood Residual Refinement (E1 & E2):
-```powershell
-cd "BaseModel and its Extension\UNet-Mamba Extension"
+$$\mathbf{Z}_{\text{final}} = \mathbf{Z}_{\text{base}} + \lambda_{\text{res}} \cdot \mathbf{C} \cdot \mathbf{G} \cdot \Delta\mathbf{Z}$$
 
-# Run Audited Verification & Architecture Audit
-python src/audit_master.py
-
-# Evaluate E1 (Neutral CASR Residual Head)
-python src/evaluate.py --experiment E1 --config configs/train_config.yaml
-
-# Evaluate E2 (RemoteCLIP Vision-Language Guidance)
-python src/evaluate.py --experiment E2 --config configs/train_config.yaml
-```
-
----
-
-### 5.3 SegFormer-B2 LOEO Cross-Validation (`SegFormer/`)
-
-#### Train a Leave-One-Event-Out Fold:
-```powershell
-cd SegFormer
-python scripts/train_fold.py --fold 0 --config configs/loeo_config.yaml
-```
-
-#### Run Full 19-Fold Evaluation:
-```powershell
-python scripts/evaluate_all_folds.py --config configs/loeo_config.yaml
-```
-
-#### Generate Prediction Overlay:
-```powershell
-python scripts/inference_single.py --image-path "path/to/chip.tif" --fold 0 --output-dir "outputs/predictions"
-```
-
----
-
-### 5.4 Live Demonstration Website (`Gradio website/`)
-
-- 🌐 **Live Public URL**: [https://3f615832804328bf5d.gradio.live/](https://3f615832804328bf5d.gradio.live/)
-- 📦 **Hugging Face Model Weights**: [https://huggingface.co/VP182006/CAVE-Flood-Weights](https://huggingface.co/VP182006/CAVE-Flood-Weights)
-- 🤗 **Hugging Face Space**: [https://huggingface.co/spaces/VP182006/CAVE-Flood](https://huggingface.co/spaces/VP182006/CAVE-Flood)
-
-#### Launch Locally:
-```powershell
-cd "Gradio website"
-python app.py
-```
-*Accessible locally at `http://localhost:7860`.*
-
----
-
-## 6. Key Methodological Features
-
-- **Parameter-Efficient Adaptation**: CAVE-Flood keeps the core 14.29M UNet-Mamba model strictly frozen and trains only 12,035 parameters in the CASR adapter head ($0.084\%$ overhead), preventing catastrophic forgetting while sharpening ambiguous water boundaries.
-- **Top-25% Selective Uncertainty Gating**: Pixels with high prediction entropy or gradient magnitude are dynamically selected for adaptation; confident interior pixels bypass refinement with exact zero residual ($\Delta Z \equiv 0$).
-- **Strict Event-Level Generalization**: SegFormer evaluated via Leave-One-Event-Out (LOEO) cross-validation to guarantee zero geographic or temporal leakage between train and test distributions.
-- **Multispectral Exploitation**: U-Net and UNet-Mamba directly process 4-channel input rasters (including Near-Infrared), maximizing NDWI contrast between water bodies and vegetation.
+Where:
+- $\mathbf{Z}_{\text{base}}$: Frozen UNet-Mamba baseline logits.
+- $\mathbf{C} \in \{0, 1\}$: Binary candidate-region selection mask isolating Top-4 highest entropy/gradient patches in a 4x4 spatial grid.
+- $\mathbf{G} \in [0, 1]$: Effective sigmoid spatial gate.
+- $\Delta\mathbf{Z}$: CASR residual correction logits.
+- **Invariance Property:** For all pixels outside candidate regions ($\mathbf{C} = 0$), $\mathbf{Z}_{\text{final}} \equiv \mathbf{Z}_{\text{base}}$ with zero residual leakage.
