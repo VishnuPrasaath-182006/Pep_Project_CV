@@ -50,6 +50,17 @@ This repository consolidates three computer vision and deep learning paradigms f
 │   ├── scripts/                       # Training, evaluation & inference runners
 │   └── src/                           # Dataset loaders, SegFormer wrapper & metrics
 │
+├── Gradio website/                    # Public Web Demonstration (Hugging Face Spaces)
+│   ├── app.py                         # Gradio Blocks frontend & inference orchestrator
+│   ├── image_adapter.py               # Universal multi-format ingestion & compatibility gating
+│   ├── inference.py                   # E0/E1/E2 inference & model manager
+│   ├── preprocessing.py               # 4-band satellite preprocessing & RGB preview
+│   ├── visualization.py               # Mask, overlay, comparison & XAI visualizers
+│   ├── xai_utils.py                   # LayerCAM & ground-truth validation metrics
+│   ├── checkpoints/                   # Audited PyTorch model weights
+│   ├── examples/                      # Compatible sample GeoTIFF rasters & test images
+│   └── tests/                         # Automated deployment verification suite
+│
 └── unet/                              # Standalone Classical U-Net Baseline
     ├── configs/                       # Base U-Net parameters (base_unet.yaml, paths.yaml)
     ├── scripts/                       # Sliding-window inference (predict_floodplanet.py)
