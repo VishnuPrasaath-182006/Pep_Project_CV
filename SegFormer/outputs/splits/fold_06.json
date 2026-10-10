@@ -1,0 +1,35 @@
+{
+  "fold_id": "fold_06",
+  "fold_index": 6,
+  "test_event": "Nigeria",
+  "train_events": [
+    "Bolivia",
+    "Colombia",
+    "Ghana",
+    "Nepal",
+    "Paraguay",
+    "Somalia",
+    "Spain",
+    "US-Arkansas",
+    "US-Carolina",
+    "US-Dakota",
+    "US-Kansas",
+    "US-Nebraska",
+    "US-Oklahoma",
+    "US-Texas",
+    "Uzbekistan"
+  ],
+  "val_events": [
+    "Bangladesh",
+    "Cambodia",
+    "US-Alabama"
+  ],
+  "num_train_events": 15,
+  "num_val_events": 3,
+  "num_test_events": 1,
+  "train_chips_count": 300,
+  "val_chips_count": 51,
+  "test_chips_count": 15,
+  "total_chips_count": 366,
+  "random_seed": 42
+}

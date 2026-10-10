@@ -1,0 +1,32 @@
+{
+  "train": {
+    "patch_count": 1872,
+    "valid_shapes": true,
+    "has_nan": false,
+    "has_inf": false,
+    "mask_unique_values": [
+      0,
+      1
+    ]
+  },
+  "val": {
+    "patch_count": 1026,
+    "valid_shapes": true,
+    "has_nan": false,
+    "has_inf": false,
+    "mask_unique_values": [
+      0,
+      1
+    ]
+  },
+  "test": {
+    "patch_count": 396,
+    "valid_shapes": true,
+    "has_nan": false,
+    "has_inf": false,
+    "mask_unique_values": [
+      0,
+      1
+    ]
+  }
+}

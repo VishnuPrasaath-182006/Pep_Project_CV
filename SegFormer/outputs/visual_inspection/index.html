@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FloodPlanet Visual Inspection Gallery - SegFormer</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 24px; }
+        h1 { color: #38bdf8; text-align: center; margin-bottom: 8px; }
+        p.subtitle { text-align: center; color: #94a3b8; margin-bottom: 32px; }
+        .event-section { background: #1e293b; border-radius: 12px; padding: 20px; margin-bottom: 32px; border: 1px solid #334155; }
+        .event-section h2 { color: #7dd3fc; border-bottom: 1px solid #334155; padding-bottom: 8px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(480px, 1fr)); gap: 16px; margin-top: 16px; }
+        .card { background: #0f172a; border-radius: 8px; padding: 12px; border: 1px solid #334155; }
+        .card h4 { margin: 0 0 8px 0; font-size: 14px; color: #cbd5e1; }
+        .card img { width: 100%; height: auto; border-radius: 4px; display: block; border: 1px solid #475569; }
+        .card img:hover { border-color: #38bdf8; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>FloodPlanet Dataset Visual Inspection Gallery</h1>
+    <p class="subtitle">Multi-Panel Visual Alignment, Mask Conservation, and Sensor Cross-Check Across 19 Global Flood Events</p>
+    
+        <div class="event-section">
+            <h2>Flood Event: Bangladesh (6 Inspection Samples)</h2>
+            <div class="grid">
+            <div class="card">
+                <h4>Bangladesh - BGD_43_99.tif</h4>
+                <a href="Bangladesh/BGD_43_99.tif_inspection.png" target="_blank">
+                    <img src="Bangladesh/BGD_43_99.tif_inspection.png" loading="lazy" alt="Bangladesh sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>Bangladesh - BGD_43_99.tif</h4>
+                <a href="Bangladesh/BGD_43_99.tif_inspection_7panel.png" target="_blank">
+                    <img src="Bangladesh/BGD_43_99.tif_inspection_7panel.png" loading="lazy" alt="Bangladesh sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>Bangladesh - BGD_50_83.tif</h4>
+                <a href="Bangladesh/BGD_50_83.tif_inspection.png" target="_blank">
+                    <img src="Bangladesh/BGD_50_83.tif_inspection.png" loading="lazy" alt="Bangladesh sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>Bangladesh - BGD_50_83.tif</h4>
+                <a href="Bangladesh/BGD_50_83.tif_inspection_7panel.png" target="_blank">
+                    <img src="Bangladesh/BGD_50_83.tif_inspection_7panel.png" loading="lazy" alt="Bangladesh sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>Bangladesh - BGD_54_69.tif</h4>
+                <a href="Bangladesh/BGD_54_69.tif_inspection.png" target="_blank">
+                    <img src="Bangladesh/BGD_54_69.tif_inspection.png" loading="lazy" alt="Bangladesh sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>Bangladesh - BGD_54_69.tif</h4>
+                <a href="Bangladesh/BGD_54_69.tif_inspection_7panel.png" target="_blank">
+                    <img src="Bangladesh/BGD_54_69.tif_inspection_7panel.png" loading="lazy" alt="Bangladesh sample" />
+                </a>
+            </div>
+            </div>
+        </div>
+        
+
+        <div class="event-section">
+            <h2>Flood Event: Bolivia (3 Inspection Samples)</h2>
+            <div class="grid">
+            <div class="card">
+                <h4>Bolivia - BOL_1309.tif</h4>
+                <a href="Bolivia/BOL_1309.tif_inspection.png" target="_blank">
+                    <img src="Bolivia/BOL_1309.tif_inspection.png" loading="lazy" alt="Bolivia sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>Bolivia - BOL_1604.tif</h4>
+                <a href="Bolivia/BOL_1604.tif_inspection.png" target="_blank">
+                    <img src="Bolivia/BOL_1604.tif_inspection.png" loading="lazy" alt="Bolivia sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>Bolivia - BOL_774.tif</h4>
+                <a href="Bolivia/BOL_774.tif_inspection.png" target="_blank">
+                    <img src="Bolivia/BOL_774.tif_inspection.png" loading="lazy" alt="Bolivia sample" />
+                </a>
+            </div>
+            </div>
+        </div>
+        
+
+        <div class="event-section">
+            <h2>Flood Event: Cambodia (3 Inspection Samples)</h2>
+            <div class="grid">
+            <div class="card">
+                <h4>Cambodia - MEK_6689.tif</h4>
+                <a href="Cambodia/MEK_6689.tif_inspection.png" target="_blank">
+                    <img src="Cambodia/MEK_6689.tif_inspection.png" loading="lazy" alt="Cambodia sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>Cambodia - MEK_6903.tif</h4>
+                <a href="Cambodia/MEK_6903.tif_inspection.png" target="_blank">
+                    <img src="Cambodia/MEK_6903.tif_inspection.png" loading="lazy" alt="Cambodia sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>Cambodia - MEK_7092.tif</h4>
+                <a href="Cambodia/MEK_7092.tif_inspection.png" target="_blank">
+                    <img src="Cambodia/MEK_7092.tif_inspection.png" loading="lazy" alt="Cambodia sample" />
+                </a>
+            </div>
+            </div>
+        </div>
+        
+
+        <div class="event-section">
+            <h2>Flood Event: Colombia (3 Inspection Samples)</h2>
+            <div class="grid">
+            <div class="card">
+                <h4>Colombia - COL_30_100.tif</h4>
+                <a href="Colombia/COL_30_100.tif_inspection.png" target="_blank">
+                    <img src="Colombia/COL_30_100.tif_inspection.png" loading="lazy" alt="Colombia sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>Colombia - COL_32_61.tif</h4>
+                <a href="Colombia/COL_32_61.tif_inspection.png" target="_blank">
+                    <img src="Colombia/COL_32_61.tif_inspection.png" loading="lazy" alt="Colombia sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>Colombia - COL_35_61.tif</h4>
+                <a href="Colombia/COL_35_61.tif_inspection.png" target="_blank">
+                    <img src="Colombia/COL_35_61.tif_inspection.png" loading="lazy" alt="Colombia sample" />
+                </a>
+            </div>
+            </div>
+        </div>
+        
+
+        <div class="event-section">
+            <h2>Flood Event: Ghana (3 Inspection Samples)</h2>
+            <div class="grid">
+            <div class="card">
+                <h4>Ghana - GHA_21_31.tif</h4>
+                <a href="Ghana/GHA_21_31.tif_inspection.png" target="_blank">
+                    <img src="Ghana/GHA_21_31.tif_inspection.png" loading="lazy" alt="Ghana sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>Ghana - GHA_23_50.tif</h4>
+                <a href="Ghana/GHA_23_50.tif_inspection.png" target="_blank">
+                    <img src="Ghana/GHA_23_50.tif_inspection.png" loading="lazy" alt="Ghana sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>Ghana - GHA_35_38.tif</h4>
+                <a href="Ghana/GHA_35_38.tif_inspection.png" target="_blank">
+                    <img src="Ghana/GHA_35_38.tif_inspection.png" loading="lazy" alt="Ghana sample" />
+                </a>
+            </div>
+            </div>
+        </div>
+        
+
+        <div class="event-section">
+            <h2>Flood Event: Nepal (3 Inspection Samples)</h2>
+            <div class="grid">
+            <div class="card">
+                <h4>Nepal - NPL_12_17.tif</h4>
+                <a href="Nepal/NPL_12_17.tif_inspection.png" target="_blank">
+                    <img src="Nepal/NPL_12_17.tif_inspection.png" loading="lazy" alt="Nepal sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>Nepal - NPL_16_19.tif</h4>
+                <a href="Nepal/NPL_16_19.tif_inspection.png" target="_blank">
+                    <img src="Nepal/NPL_16_19.tif_inspection.png" loading="lazy" alt="Nepal sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>Nepal - NPL_7_9.tif</h4>
+                <a href="Nepal/NPL_7_9.tif_inspection.png" target="_blank">
+                    <img src="Nepal/NPL_7_9.tif_inspection.png" loading="lazy" alt="Nepal sample" />
+                </a>
+            </div>
+            </div>
+        </div>
+        
+
+        <div class="event-section">
+            <h2>Flood Event: Nigeria (3 Inspection Samples)</h2>
+            <div class="grid">
+            <div class="card">
+                <h4>Nigeria - NGA_10_42.tif</h4>
+                <a href="Nigeria/NGA_10_42.tif_inspection.png" target="_blank">
+                    <img src="Nigeria/NGA_10_42.tif_inspection.png" loading="lazy" alt="Nigeria sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>Nigeria - NGA_15_18.tif</h4>
+                <a href="Nigeria/NGA_15_18.tif_inspection.png" target="_blank">
+                    <img src="Nigeria/NGA_15_18.tif_inspection.png" loading="lazy" alt="Nigeria sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>Nigeria - NGA_7_44.tif</h4>
+                <a href="Nigeria/NGA_7_44.tif_inspection.png" target="_blank">
+                    <img src="Nigeria/NGA_7_44.tif_inspection.png" loading="lazy" alt="Nigeria sample" />
+                </a>
+            </div>
+            </div>
+        </div>
+        
+
+        <div class="event-section">
+            <h2>Flood Event: Paraguay (3 Inspection Samples)</h2>
+            <div class="grid">
+            <div class="card">
+                <h4>Paraguay - PRY_16_72.tif</h4>
+                <a href="Paraguay/PRY_16_72.tif_inspection.png" target="_blank">
+                    <img src="Paraguay/PRY_16_72.tif_inspection.png" loading="lazy" alt="Paraguay sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>Paraguay - PRY_34_51.tif</h4>
+                <a href="Paraguay/PRY_34_51.tif_inspection.png" target="_blank">
+                    <img src="Paraguay/PRY_34_51.tif_inspection.png" loading="lazy" alt="Paraguay sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>Paraguay - PRY_48_7.tif</h4>
+                <a href="Paraguay/PRY_48_7.tif_inspection.png" target="_blank">
+                    <img src="Paraguay/PRY_48_7.tif_inspection.png" loading="lazy" alt="Paraguay sample" />
+                </a>
+            </div>
+            </div>
+        </div>
+        
+
+        <div class="event-section">
+            <h2>Flood Event: Somalia (3 Inspection Samples)</h2>
+            <div class="grid">
+            <div class="card">
+                <h4>Somalia - SOM_21_41.tif</h4>
+                <a href="Somalia/SOM_21_41.tif_inspection.png" target="_blank">
+                    <img src="Somalia/SOM_21_41.tif_inspection.png" loading="lazy" alt="Somalia sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>Somalia - SOM_23_68.tif</h4>
+                <a href="Somalia/SOM_23_68.tif_inspection.png" target="_blank">
+                    <img src="Somalia/SOM_23_68.tif_inspection.png" loading="lazy" alt="Somalia sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>Somalia - SOM_8_94.tif</h4>
+                <a href="Somalia/SOM_8_94.tif_inspection.png" target="_blank">
+                    <img src="Somalia/SOM_8_94.tif_inspection.png" loading="lazy" alt="Somalia sample" />
+                </a>
+            </div>
+            </div>
+        </div>
+        
+
+        <div class="event-section">
+            <h2>Flood Event: Spain (3 Inspection Samples)</h2>
+            <div class="grid">
+            <div class="card">
+                <h4>Spain - ESP_1747.tif</h4>
+                <a href="Spain/ESP_1747.tif_inspection.png" target="_blank">
+                    <img src="Spain/ESP_1747.tif_inspection.png" loading="lazy" alt="Spain sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>Spain - ESP_1797.tif</h4>
+                <a href="Spain/ESP_1797.tif_inspection.png" target="_blank">
+                    <img src="Spain/ESP_1797.tif_inspection.png" loading="lazy" alt="Spain sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>Spain - ESP_1847.tif</h4>
+                <a href="Spain/ESP_1847.tif_inspection.png" target="_blank">
+                    <img src="Spain/ESP_1847.tif_inspection.png" loading="lazy" alt="Spain sample" />
+                </a>
+            </div>
+            </div>
+        </div>
+        
+
+        <div class="event-section">
+            <h2>Flood Event: US-Alabama (3 Inspection Samples)</h2>
+            <div class="grid">
+            <div class="card">
+                <h4>US-Alabama - NAL_16_10.tif</h4>
+                <a href="US-Alabama/NAL_16_10.tif_inspection.png" target="_blank">
+                    <img src="US-Alabama/NAL_16_10.tif_inspection.png" loading="lazy" alt="US-Alabama sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>US-Alabama - NAL_7_36.tif</h4>
+                <a href="US-Alabama/NAL_7_36.tif_inspection.png" target="_blank">
+                    <img src="US-Alabama/NAL_7_36.tif_inspection.png" loading="lazy" alt="US-Alabama sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>US-Alabama - NAL_8_16.tif</h4>
+                <a href="US-Alabama/NAL_8_16.tif_inspection.png" target="_blank">
+                    <img src="US-Alabama/NAL_8_16.tif_inspection.png" loading="lazy" alt="US-Alabama sample" />
+                </a>
+            </div>
+            </div>
+        </div>
+        
+
+        <div class="event-section">
+            <h2>Flood Event: US-Arkansas (3 Inspection Samples)</h2>
+            <div class="grid">
+            <div class="card">
+                <h4>US-Arkansas - LIT_5_3.tif</h4>
+                <a href="US-Arkansas/LIT_5_3.tif_inspection.png" target="_blank">
+                    <img src="US-Arkansas/LIT_5_3.tif_inspection.png" loading="lazy" alt="US-Arkansas sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>US-Arkansas - LIT_6_3.tif</h4>
+                <a href="US-Arkansas/LIT_6_3.tif_inspection.png" target="_blank">
+                    <img src="US-Arkansas/LIT_6_3.tif_inspection.png" loading="lazy" alt="US-Arkansas sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>US-Arkansas - LIT_6_5.tif</h4>
+                <a href="US-Arkansas/LIT_6_5.tif_inspection.png" target="_blank">
+                    <img src="US-Arkansas/LIT_6_5.tif_inspection.png" loading="lazy" alt="US-Arkansas sample" />
+                </a>
+            </div>
+            </div>
+        </div>
+        
+
+        <div class="event-section">
+            <h2>Flood Event: US-Carolina (3 Inspection Samples)</h2>
+            <div class="grid">
+            <div class="card">
+                <h4>US-Carolina - FLO_33_58.tif</h4>
+                <a href="US-Carolina/FLO_33_58.tif_inspection.png" target="_blank">
+                    <img src="US-Carolina/FLO_33_58.tif_inspection.png" loading="lazy" alt="US-Carolina sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>US-Carolina - FLO_40_23.tif</h4>
+                <a href="US-Carolina/FLO_40_23.tif_inspection.png" target="_blank">
+                    <img src="US-Carolina/FLO_40_23.tif_inspection.png" loading="lazy" alt="US-Carolina sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>US-Carolina - FLO_58_13.tif</h4>
+                <a href="US-Carolina/FLO_58_13.tif_inspection.png" target="_blank">
+                    <img src="US-Carolina/FLO_58_13.tif_inspection.png" loading="lazy" alt="US-Carolina sample" />
+                </a>
+            </div>
+            </div>
+        </div>
+        
+
+        <div class="event-section">
+            <h2>Flood Event: US-Dakota (3 Inspection Samples)</h2>
+            <div class="grid">
+            <div class="card">
+                <h4>US-Dakota - RRN_100_44.tif</h4>
+                <a href="US-Dakota/RRN_100_44.tif_inspection.png" target="_blank">
+                    <img src="US-Dakota/RRN_100_44.tif_inspection.png" loading="lazy" alt="US-Dakota sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>US-Dakota - RRN_14_6.tif</h4>
+                <a href="US-Dakota/RRN_14_6.tif_inspection.png" target="_blank">
+                    <img src="US-Dakota/RRN_14_6.tif_inspection.png" loading="lazy" alt="US-Dakota sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>US-Dakota - RRN_33_21.tif</h4>
+                <a href="US-Dakota/RRN_33_21.tif_inspection.png" target="_blank">
+                    <img src="US-Dakota/RRN_33_21.tif_inspection.png" loading="lazy" alt="US-Dakota sample" />
+                </a>
+            </div>
+            </div>
+        </div>
+        
+
+        <div class="event-section">
+            <h2>Flood Event: US-Kansas (3 Inspection Samples)</h2>
+            <div class="grid">
+            <div class="card">
+                <h4>US-Kansas - USA_26_4.tif</h4>
+                <a href="US-Kansas/USA_26_4.tif_inspection.png" target="_blank">
+                    <img src="US-Kansas/USA_26_4.tif_inspection.png" loading="lazy" alt="US-Kansas sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>US-Kansas - USA_31_6.tif</h4>
+                <a href="US-Kansas/USA_31_6.tif_inspection.png" target="_blank">
+                    <img src="US-Kansas/USA_31_6.tif_inspection.png" loading="lazy" alt="US-Kansas sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>US-Kansas - USA_40_38.tif</h4>
+                <a href="US-Kansas/USA_40_38.tif_inspection.png" target="_blank">
+                    <img src="US-Kansas/USA_40_38.tif_inspection.png" loading="lazy" alt="US-Kansas sample" />
+                </a>
+            </div>
+            </div>
+        </div>
+        
+
+        <div class="event-section">
+            <h2>Flood Event: US-Nebraska (3 Inspection Samples)</h2>
+            <div class="grid">
+            <div class="card">
+                <h4>US-Nebraska - NEB_18_47.tif</h4>
+                <a href="US-Nebraska/NEB_18_47.tif_inspection.png" target="_blank">
+                    <img src="US-Nebraska/NEB_18_47.tif_inspection.png" loading="lazy" alt="US-Nebraska sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>US-Nebraska - NEB_41_34.tif</h4>
+                <a href="US-Nebraska/NEB_41_34.tif_inspection.png" target="_blank">
+                    <img src="US-Nebraska/NEB_41_34.tif_inspection.png" loading="lazy" alt="US-Nebraska sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>US-Nebraska - NEB_79_46.tif</h4>
+                <a href="US-Nebraska/NEB_79_46.tif_inspection.png" target="_blank">
+                    <img src="US-Nebraska/NEB_79_46.tif_inspection.png" loading="lazy" alt="US-Nebraska sample" />
+                </a>
+            </div>
+            </div>
+        </div>
+        
+
+        <div class="event-section">
+            <h2>Flood Event: US-Oklahoma (3 Inspection Samples)</h2>
+            <div class="grid">
+            <div class="card">
+                <h4>US-Oklahoma - TUL_5_11.tif</h4>
+                <a href="US-Oklahoma/TUL_5_11.tif_inspection.png" target="_blank">
+                    <img src="US-Oklahoma/TUL_5_11.tif_inspection.png" loading="lazy" alt="US-Oklahoma sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>US-Oklahoma - TUL_6_12.tif</h4>
+                <a href="US-Oklahoma/TUL_6_12.tif_inspection.png" target="_blank">
+                    <img src="US-Oklahoma/TUL_6_12.tif_inspection.png" loading="lazy" alt="US-Oklahoma sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>US-Oklahoma - TUL_8_11.tif</h4>
+                <a href="US-Oklahoma/TUL_8_11.tif_inspection.png" target="_blank">
+                    <img src="US-Oklahoma/TUL_8_11.tif_inspection.png" loading="lazy" alt="US-Oklahoma sample" />
+                </a>
+            </div>
+            </div>
+        </div>
+        
+
+        <div class="event-section">
+            <h2>Flood Event: US-Texas (3 Inspection Samples)</h2>
+            <div class="grid">
+            <div class="card">
+                <h4>US-Texas - HRV_14_3.tif</h4>
+                <a href="US-Texas/HRV_14_3.tif_inspection.png" target="_blank">
+                    <img src="US-Texas/HRV_14_3.tif_inspection.png" loading="lazy" alt="US-Texas sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>US-Texas - HRV_17_3.tif</h4>
+                <a href="US-Texas/HRV_17_3.tif_inspection.png" target="_blank">
+                    <img src="US-Texas/HRV_17_3.tif_inspection.png" loading="lazy" alt="US-Texas sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>US-Texas - HRV_9_20.tif</h4>
+                <a href="US-Texas/HRV_9_20.tif_inspection.png" target="_blank">
+                    <img src="US-Texas/HRV_9_20.tif_inspection.png" loading="lazy" alt="US-Texas sample" />
+                </a>
+            </div>
+            </div>
+        </div>
+        
+
+        <div class="event-section">
+            <h2>Flood Event: Uzbekistan (3 Inspection Samples)</h2>
+            <div class="grid">
+            <div class="card">
+                <h4>Uzbekistan - UZB_11_5.tif</h4>
+                <a href="Uzbekistan/UZB_11_5.tif_inspection.png" target="_blank">
+                    <img src="Uzbekistan/UZB_11_5.tif_inspection.png" loading="lazy" alt="Uzbekistan sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>Uzbekistan - UZB_17_9.tif</h4>
+                <a href="Uzbekistan/UZB_17_9.tif_inspection.png" target="_blank">
+                    <img src="Uzbekistan/UZB_17_9.tif_inspection.png" loading="lazy" alt="Uzbekistan sample" />
+                </a>
+            </div>
+            
+
+            <div class="card">
+                <h4>Uzbekistan - UZB_19_9.tif</h4>
+                <a href="Uzbekistan/UZB_19_9.tif_inspection.png" target="_blank">
+                    <img src="Uzbekistan/UZB_19_9.tif_inspection.png" loading="lazy" alt="Uzbekistan sample" />
+                </a>
+            </div>
+            </div>
+        </div>
+        
+</body>
+</html>

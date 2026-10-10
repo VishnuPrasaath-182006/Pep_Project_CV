@@ -1,0 +1,57 @@
+[
+  {
+    "epoch": 1,
+    "train_loss": 1.2273379904883248,
+    "val_mean_event_flood_iou": 0.6515758264073204,
+    "val_mean_event_miou": 0.6668221984218261,
+    "val_bolivia_flood_iou": 0.566111310327739,
+    "val_usdakota_flood_iou": 0.7370403424869019,
+    "val_pooled_flood_iou": 0.597288391211773,
+    "val_pooled_dice": 0.7478779592940556,
+    "is_best": true
+  },
+  {
+    "epoch": 2,
+    "train_loss": 1.1127557350056512,
+    "val_mean_event_flood_iou": 0.6474362899271294,
+    "val_mean_event_miou": 0.6670772683342789,
+    "val_bolivia_flood_iou": 0.5570980015068894,
+    "val_usdakota_flood_iou": 0.7377745783473695,
+    "val_pooled_flood_iou": 0.5901318772121108,
+    "val_pooled_dice": 0.7422426852378508,
+    "is_best": false
+  },
+  {
+    "epoch": 3,
+    "train_loss": 1.0614436918071337,
+    "val_mean_event_flood_iou": 0.6517633030131271,
+    "val_mean_event_miou": 0.6671274942072098,
+    "val_bolivia_flood_iou": 0.5665611626519584,
+    "val_usdakota_flood_iou": 0.7369654433742959,
+    "val_pooled_flood_iou": 0.5976296901599981,
+    "val_pooled_dice": 0.7481454480232489,
+    "is_best": true
+  },
+  {
+    "epoch": 4,
+    "train_loss": 1.0078745622720038,
+    "val_mean_event_flood_iou": 0.6493225294823961,
+    "val_mean_event_miou": 0.6675039576032329,
+    "val_bolivia_flood_iou": 0.5616091277528035,
+    "val_usdakota_flood_iou": 0.7370359312119886,
+    "val_pooled_flood_iou": 0.5936487642791267,
+    "val_pooled_dice": 0.7450183222118691,
+    "is_best": false
+  },
+  {
+    "epoch": 5,
+    "train_loss": 0.9958683672760215,
+    "val_mean_event_flood_iou": 0.653316099996246,
+    "val_mean_event_miou": 0.6667832805538408,
+    "val_bolivia_flood_iou": 0.570506921638851,
+    "val_usdakota_flood_iou": 0.7361252783536408,
+    "val_pooled_flood_iou": 0.6006690311660309,
+    "val_pooled_dice": 0.750522462133805,
+    "is_best": true
+  }
+]

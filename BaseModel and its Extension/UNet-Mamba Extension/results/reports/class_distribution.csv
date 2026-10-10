@@ -1,0 +1,4 @@
+class_name,raw_value,mapped_value,pixel_count,percentage
+Background (Non-flooded),1,0,209156698,54.5
+Flood (Flooded),2,1,174622118,45.5
+Nodata / Invalid,Other,-1,0,0.0

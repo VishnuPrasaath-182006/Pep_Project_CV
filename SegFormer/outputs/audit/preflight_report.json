@@ -1,0 +1,104 @@
+{
+  "timestamp": "2026-10-09 14:03:05",
+  "config_path": "configs/segformer_b2_loeo.yaml",
+  "checks": {
+    "1. Repository paths valid": {
+      "status": "PASSED",
+      "details": "outputs"
+    },
+    "2. Required core files exist": {
+      "status": "PASSED",
+      "details": "All present"
+    },
+    "3. Python imports succeed": {
+      "status": "PASSED",
+      "details": ""
+    },
+    "4. Required packages compatible": {
+      "status": "PASSED",
+      "details": "PyTorch 2.4.1+cpu, Transformers 4.57.6"
+    },
+    "5. Dataset path exists": {
+      "status": "PASSED",
+      "details": "Datasets"
+    },
+    "6. Event count verified": {
+      "status": "PASSED",
+      "details": "19 events discovered"
+    },
+    "7. Original multi-sensor rasters readable": {
+      "status": "PASSED",
+      "details": "Read S1 sample shape: (2, 334, 334)"
+    },
+    "8. Modified PlanetScope images readable": {
+      "status": "PASSED",
+      "details": "Shape: (1024, 1024, 4)"
+    },
+    "9. Ground truth masks readable": {
+      "status": "PASSED",
+      "details": "Shape: (1024, 1024)"
+    },
+    "10. Image-mask pairing valid": {
+      "status": "PASSED",
+      "details": "366/366 pairs verified"
+    },
+    "11. Mask class mapping correct": {
+      "status": "PASSED",
+      "details": "1->0 (Non-flood), 2->1 (Flood), 0->255 (Ignore)"
+    },
+    "12. Mask pixel values verified": {
+      "status": "PASSED",
+      "details": "100% pixel conservation verified"
+    },
+    "13. Nodata handled correctly": {
+      "status": "PASSED",
+      "details": "Nodata mapped to 255 (not background)"
+    },
+    "14. Image-mask spatial alignment valid": {
+      "status": "PASSED",
+      "details": "1024x1024 dimension equality across 366 pairs"
+    },
+    "15. Duplicate/leaked data addressed": {
+      "status": "PASSED",
+      "details": "Zero cross-event duplicates"
+    },
+    "16. LOEO splits disjoint": {
+      "status": "PASSED",
+      "details": "19/19 folds verified"
+    },
+    "17. SegFormer model loads": {
+      "status": "PASSED",
+      "details": "27.3M params initialized"
+    },
+    "18. Model forward pass works": {
+      "status": "PASSED",
+      "details": "Logits shape: torch.Size([1, 2, 256, 256])"
+    },
+    "19. Backward pass works": {
+      "status": "PASSED",
+      "details": "Gradients backpropagated successfully"
+    },
+    "20. Loss is finite": {
+      "status": "PASSED",
+      "details": "Scalar loss: 0.7215"
+    },
+    "21. Metrics formulas verified": {
+      "status": "PASSED",
+      "details": ""
+    },
+    "22. Tiling/reconstruction verified": {
+      "status": "PASSED",
+      "details": "Exact 4-tile complete coverage"
+    },
+    "23. Training output directory writable": {
+      "status": "PASSED",
+      "details": "outputs"
+    },
+    "24. Visual inspection gallery generated": {
+      "status": "PASSED",
+      "details": "outputs/visual_inspection/index.html"
+    }
+  },
+  "overall_status": "PASSED",
+  "human_review_status": "PENDING (Automated checks verified; manual review of index.html pending user inspection)"
+}

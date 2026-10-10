@@ -1,0 +1,247 @@
+{
+  "evaluation_timestamp": "2026-10-09 17:51:36",
+  "total_test_scenes": 44,
+  "total_valid_pixels": 46137344,
+  "evaluation_time_seconds": 342.2211163043976,
+  "checkpoints": {
+    "E0": "best_model.pth",
+    "E1": "best_e1_model.pth",
+    "E2": "best_e2_model.pth"
+  },
+  "experiments": {
+    "E0": {
+      "pooled": {
+        "flood_iou": 0.7759125871777202,
+        "bg_iou": 0.7321267084774707,
+        "mean_iou": 0.7540196478275955,
+        "flood_dice": 0.8738184444210739,
+        "flood_precision": 0.915601151909035,
+        "flood_recall": 0.8356827477488669,
+        "specificity": 0.8954314618099974,
+        "pixel_accuracy": 0.8610271974043413,
+        "valid_pixels": 46137344,
+        "tp": 22201266,
+        "fp": 2046482,
+        "fn": 4365354,
+        "tn": 17524242,
+        "chip_count": 44,
+        "chips": 44
+      },
+      "per_event": {
+        "Bangladesh": {
+          "flood_iou": 0.5711114806523825,
+          "bg_iou": 0.7968822166983222,
+          "mean_iou": 0.6839968486753523,
+          "flood_dice": 0.7270158581175109,
+          "flood_precision": 0.7678287253645727,
+          "flood_recall": 0.6903227149809705,
+          "specificity": 0.9069225234424706,
+          "pixel_accuracy": 0.8401243209838867,
+          "valid_pixels": 15728640,
+          "tp": 3348498,
+          "fp": 1012498,
+          "fn": 1502129,
+          "tn": 9865515,
+          "chip_count": 15,
+          "chips": 15
+        },
+        "Cambodia": {
+          "flood_iou": 0.8102884609445967,
+          "bg_iou": 0.5871854653449431,
+          "mean_iou": 0.69873696314477,
+          "flood_dice": 0.8952036964559709,
+          "flood_precision": 0.9537392182650144,
+          "flood_recall": 0.8434378927438273,
+          "specificity": 0.8728673333881752,
+          "pixel_accuracy": 0.8506025791168212,
+          "valid_pixels": 20971520,
+          "tp": 13381935,
+          "fp": 649086,
+          "fn": 2484005,
+          "tn": 4456494,
+          "chip_count": 20,
+          "chips": 20
+        },
+        "Nepal": {
+          "flood_iou": 0.8774460296480278,
+          "bg_iou": 0.8073498790197842,
+          "mean_iou": 0.842397954333906,
+          "flood_dice": 0.9347230394820202,
+          "flood_precision": 0.9342698631477436,
+          "flood_recall": 0.9351766556644872,
+          "specificity": 0.8927003223467446,
+          "pixel_accuracy": 0.9190311431884766,
+          "valid_pixels": 9437184,
+          "tp": 5470833,
+          "fp": 384898,
+          "fn": 379220,
+          "tn": 3202233,
+          "chip_count": 9,
+          "chips": 9
+        }
+      },
+      "event_macro": {
+        "mean_event_flood_iou": 0.752948657081669,
+        "std_event_flood_iou": 0.13146889063544173,
+        "mean_event_mean_iou": 0.7417105887180094,
+        "mean_event_dice": 0.8523141980185006
+      }
+    },
+    "E1": {
+      "pooled": {
+        "flood_iou": 0.7777616045876277,
+        "bg_iou": 0.7297539316129052,
+        "mean_iou": 0.7537577681002665,
+        "flood_dice": 0.8749897653099988,
+        "flood_precision": 0.908187832836449,
+        "flood_recall": 0.8441331640984062,
+        "specificity": 0.8841582968519713,
+        "pixel_accuracy": 0.8611111857674338,
+        "valid_pixels": 46137344,
+        "tp": 22425765,
+        "fp": 2267106,
+        "fn": 4140855,
+        "tn": 17303618,
+        "chip_count": 44,
+        "chips": 44
+      },
+      "per_event": {
+        "Bangladesh": {
+          "flood_iou": 0.5745738486960295,
+          "bg_iou": 0.794714793052594,
+          "mean_iou": 0.6846443208743117,
+          "flood_dice": 0.7298150533515568,
+          "flood_precision": 0.7577411874159555,
+          "flood_recall": 0.7038741589489359,
+          "specificity": 0.8996535488604399,
+          "pixel_accuracy": 0.8392762502034505,
+          "valid_pixels": 15728640,
+          "tp": 3414231,
+          "fp": 1091570,
+          "fn": 1436396,
+          "tn": 9786443,
+          "chip_count": 15,
+          "chips": 15
+        },
+        "Cambodia": {
+          "flood_iou": 0.8139366409995099,
+          "bg_iou": 0.5856572054149898,
+          "mean_iou": 0.6997969232072498,
+          "flood_dice": 0.8974256571067631,
+          "flood_precision": 0.9481767123609623,
+          "flood_recall": 0.8518314704328895,
+          "specificity": 0.8553194739872845,
+          "pixel_accuracy": 0.8526806354522705,
+          "valid_pixels": 20971520,
+          "tp": 13515107,
+          "fp": 738678,
+          "fn": 2350833,
+          "tn": 4366902,
+          "chip_count": 20,
+          "chips": 20
+        },
+        "Nepal": {
+          "flood_iou": 0.8742651200247625,
+          "bg_iou": 0.7994080832692805,
+          "mean_iou": 0.8368366016470214,
+          "flood_dice": 0.9329151043617692,
+          "flood_precision": 0.9263716474094873,
+          "flood_recall": 0.9395516587627497,
+          "specificity": 0.8782152087559668,
+          "pixel_accuracy": 0.916237301296658,
+          "valid_pixels": 9437184,
+          "tp": 5496427,
+          "fp": 436858,
+          "fn": 353626,
+          "tn": 3150273,
+          "chip_count": 9,
+          "chips": 9
+        }
+      },
+      "event_macro": {
+        "mean_event_flood_iou": 0.7542585365734339,
+        "std_event_flood_iou": 0.12942133167443276,
+        "mean_event_mean_iou": 0.7404259485761943,
+        "mean_event_dice": 0.8533852716066964
+      }
+    },
+    "E2": {
+      "pooled": {
+        "flood_iou": 0.7777231095378198,
+        "bg_iou": 0.73018650120543,
+        "mean_iou": 0.753954805371625,
+        "flood_dice": 0.8749654041905498,
+        "flood_precision": 0.9090532710276582,
+        "flood_recall": 0.843341606873588,
+        "specificity": 0.8854669863005579,
+        "pixel_accuracy": 0.861210519617254,
+        "valid_pixels": 46137344,
+        "tp": 22404736,
+        "fp": 2241494,
+        "fn": 4161884,
+        "tn": 17329230,
+        "chip_count": 44,
+        "chips": 44
+      },
+      "per_event": {
+        "Bangladesh": {
+          "flood_iou": 0.5753620136572918,
+          "bg_iou": 0.7954955897113781,
+          "mean_iou": 0.685428801684335,
+          "flood_dice": 0.7304505360282953,
+          "flood_precision": 0.7594881888361891,
+          "flood_recall": 0.7035515202467639,
+          "specificity": 0.9006518929514057,
+          "pixel_accuracy": 0.8398672103881836,
+          "valid_pixels": 15728640,
+          "tp": 3412666,
+          "fp": 1080710,
+          "fn": 1437961,
+          "tn": 9797303,
+          "chip_count": 15,
+          "chips": 15
+        },
+        "Cambodia": {
+          "flood_iou": 0.8133402221486258,
+          "bg_iou": 0.5855539497193384,
+          "mean_iou": 0.6994470859339821,
+          "flood_dice": 0.8970630135638854,
+          "flood_precision": 0.9487521500414369,
+          "flood_recall": 0.8507150537566637,
+          "specificity": 0.8572001613920456,
+          "pixel_accuracy": 0.852293872833252,
+          "valid_pixels": 20971520,
+          "tp": 13497394,
+          "fp": 729076,
+          "fn": 2368546,
+          "tn": 4376504,
+          "chip_count": 20,
+          "chips": 20
+        },
+        "Nepal": {
+          "flood_iou": 0.874703128629058,
+          "bg_iou": 0.8003593144262484,
+          "mean_iou": 0.8375312215276531,
+          "flood_dice": 0.9331644197646538,
+          "flood_precision": 0.927154905925772,
+          "flood_recall": 0.9392523452351629,
+          "specificity": 0.8796508964963923,
+          "pixel_accuracy": 0.9165974722968208,
+          "valid_pixels": 9437184,
+          "tp": 5494676,
+          "fp": 431708,
+          "fn": 355377,
+          "tn": 3155423,
+          "chip_count": 9,
+          "chips": 9
+        }
+      },
+      "event_macro": {
+        "mean_event_flood_iou": 0.7544684548116586,
+        "std_event_flood_iou": 0.12910122519472475,
+        "mean_event_mean_iou": 0.7408023697153233,
+        "mean_event_dice": 0.8535593231189448
+      }
+    }
+  }
+}

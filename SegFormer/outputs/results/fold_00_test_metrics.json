@@ -1,0 +1,37 @@
+{
+  "fold_idx": 0,
+  "test_event": "Bangladesh",
+  "metrics": {
+    "tp": 3645439,
+    "tn": 5155597,
+    "fp": 5722416,
+    "fn": 1205188,
+    "total_valid_pixels": 15728640,
+    "flood_iou": 0.344786,
+    "non_flood_iou": 0.426675,
+    "miou": 0.38573,
+    "precision": 0.389143,
+    "recall": 0.75154,
+    "f1": 0.512775,
+    "dice": 0.512775,
+    "specificity": 0.473947,
+    "accuracy": 0.559555,
+    "confusion_matrix": [
+      [
+        5155597,
+        5722416
+      ],
+      [
+        1205188,
+        3645439
+      ]
+    ],
+    "eval_loss": 0.760903
+  },
+  "confusion_matrix": {
+    "tp": 3645439,
+    "tn": 5155597,
+    "fp": 5722416,
+    "fn": 1205188
+  }
+}

@@ -1,0 +1,4 @@
+event,bg_iou,flood_iou,mean_iou,flood_dice,flood_precision,flood_recall,accuracy
+Bangladesh,0.7982,0.5725,0.6854,0.7281,0.7711,0.6896,0.8412
+Cambodia,0.5862,0.809,0.6976,0.8944,0.9544,0.8415,0.8497
+Nepal,0.8089,0.8783,0.8436,0.9352,0.9354,0.935,0.9197
