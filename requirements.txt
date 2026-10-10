@@ -13,3 +13,7 @@ tqdm
 scikit-learn
 PyYAML
 pytest
+
+# Vision-Language Guidance (RemoteCLIP E2)
+open-clip-torch>=2.20.0
+huggingface-hub>=0.20.0

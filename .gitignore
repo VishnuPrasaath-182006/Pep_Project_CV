@@ -13,7 +13,7 @@ build/
 Thumbs.db
 desktop.ini
 
-# Dataset files (excluded per user instruction)
+# Dataset files (strictly excluded per instruction)
 Dataset/
 **/Dataset/
 UNet-Mamba Extension/Dataset/
@@ -26,19 +26,18 @@ UNet-Mamba/manifests/processed_data/
 UNet-Mamba Extension/manifests/processed_data/
 processed_data/
 *.npz
+!UNet-Mamba Extension/artifacts/CAVE_Flood_Antigravity/cache/candidate_regions/val/Bolivia_BOL_1015_p0.npz
 
-# Large baseline model weights (>100MB, exceeds GitHub 100MB limit)
+# Large baseline model weights (>100MB, tracked via LFS)
 UNet-Mamba/checkpoints/*.pth
 !UNet-Mamba/checkpoints/.gitkeep
-UNet-Mamba Extension/checkpoints/best_model.pth
 UNet-Mamba Extension/checkpoints/final_epoch_11.pth
 UNet-Mamba Extension/checkpoints/last_checkpoint.pth
 !UNet-Mamba Extension/checkpoints/.gitkeep
 
-# Large release bundles and archives (>100MB, exceeds GitHub 100MB limit)
+# Large release bundles and archives (>100MB)
 *.zip
-UNet-Mamba/releases/*.zip
-UNet-Mamba Extension/releases/*.zip
+!UNet-Mamba Extension/releases/CAVE_Flood_Audited_Release_v3.zip
 
 # IDE / Editor
 .vscode/
